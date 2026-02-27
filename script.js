@@ -49,10 +49,14 @@ function switchPage(pageId, updateHistory = true) {
 }
 
 function updateSidebarActive(pageId) {
+  const mobileTitle = document.getElementById("mobilePageTitle");
   navLinks.forEach((link) => {
     if (link.dataset.page === pageId) {
       link.classList.add("active");
-      
+
+      // Update mobile top bar title
+      if (mobileTitle) mobileTitle.textContent = link.textContent;
+
       // Highlight parent section
       document.querySelectorAll(".nav-section-label").forEach(l => l.classList.remove("active-section"));
       let prev = link.parentElement.previousElementSibling;
