@@ -65,7 +65,7 @@
       <!-- Hero -->
       <section class="hero">
         <div class="hero-glow"></div>
-        <h1>Claude Code</h1>
+        <h1>Claude Code Guide</h1>
         <p class="subtitle">Build apps, websites, and cool stuff with AI — no coding experience needed.</p>
       </section>
 
@@ -93,10 +93,10 @@
           <span class="section-number">02</span>
           <h2>Open Terminal</h2>
         </div>
+        <p>A window where you type commands to your Mac. We'll only need it for initial setup &mdash; we'll set up a proper code editor on the next page.</p>
         <div class="card info">
           <p>Press <kbd>Cmd</kbd> + <kbd>Space</kbd> to open Spotlight. Type <strong>Terminal</strong> and press Enter.</p>
           <p>A window with a blinking cursor appears. This is where you'll paste the first few setup commands. To paste: <kbd>Cmd</kbd> + <kbd>V</kbd>.</p>
-          <p class="hint">We'll switch to VS Code on the next page &mdash; it's much nicer to work in.</p>
         </div>
 
         <div class="card tip">
@@ -247,7 +247,7 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Wait for it to finish. Then <strong>close and reopen VS Code's Terminal</strong> (press <kbd>Ctrl</kbd> + <kbd>`</kbd> twice &mdash; once to close, once to reopen). Verify:</p>
+          <p>Wait for it to finish. Then <strong>close and reopen Terminal</strong> (<kbd>Cmd</kbd> + <kbd>Q</kbd>, then reopen). Verify:</p>
           <div class="code-block">
             <code><span class="token-cmd">claude</span> <span class="token-arg">--version</span></code>
             <button class="copy-btn" data-copy="claude --version" aria-label="Copy">
@@ -312,7 +312,7 @@
         <span class="page-icon">&#x1F4BB;</span>
         <div>
           <h1>VS Code</h1>
-          <p class="subtitle">Setting up your home base for building projects.</p>
+          <p class="subtitle">Your home base for building with Claude Code.</p>
         </div>
       </div>
 
@@ -321,13 +321,13 @@
           <span class="section-number">01</span>
           <h2>Download &amp; Install</h2>
         </div>
+        <p>VS Code is a free code editor. It's where you'll see your files, watch Claude make changes, and build everything.</p>
         <div class="card info">
-          <p>VS Code is the world's most popular tool for building apps. It's free and works perfectly with Claude.</p>
           <ol>
             <li>Go to <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a></li>
-            <li>Click the big <strong>Download</strong> button for Mac.</li>
-            <li>Open the downloaded <code>.zip</code> file.</li>
-            <li>Drag the <strong>Visual Studio Code</strong> app into your <strong>Applications</strong> folder.</li>
+            <li>Click the big <strong>Download</strong> button for Mac</li>
+            <li>Open the downloaded <code>.zip</code> file</li>
+            <li>Drag <strong>Visual Studio Code</strong> into your <strong>Applications</strong> folder</li>
           </ol>
         </div>
       </section>
@@ -335,115 +335,40 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">02</span>
-          <h2>Open the Terminal Inside</h2>
+          <h2>Install the Claude Code Extension</h2>
         </div>
-        <div class="card tip">
-          <h3>The Shortcut</h3>
-          <p>Open VS Code, then press <kbd>Ctrl</kbd> + <kbd>`</kbd> (the key next to 1).</p>
-          <p>A panel opens at the bottom. <strong>This is your new home.</strong> You can type all your commands here instead of the old Mac Terminal app.</p>
+        <p>This connects Claude Code to VS Code so it can edit your files and show changes live.</p>
+        <div class="card success">
+          <ol>
+            <li>Open VS Code</li>
+            <li>Click the <strong>Extensions icon</strong> (four squares) on the left sidebar</li>
+            <li>Search for <strong>"Claude Code"</strong></li>
+            <li>Click <strong>Install</strong> on the one from Anthropic</li>
+          </ol>
         </div>
       </section>
 
       <section class="section">
         <div class="section-header">
           <span class="section-number">03</span>
-          <h2>Install the Claude Code Extension</h2>
+          <h2>Open Claude Code</h2>
         </div>
-        <div class="card success">
-          <p>This is the "magic" part. It lets Claude edit your files and show you the changes live.</p>
-          <ol>
-            <li>In VS Code, click the <strong>Extensions icon</strong> (four squares) on the left sidebar.</li>
-            <li>Search for <strong>"Claude Code"</strong>.</li>
-            <li>Click <strong>Install</strong>.</li>
-          </ol>
-          <p class="hint">Look for the official extension from Anthropic.</p>
+        <p>One shortcut to remember. Claude reads your files, edits them, and you see the changes live in the other tabs.</p>
+        <div class="card tip">
+          <h3><kbd>Cmd</kbd> + <kbd>I</kbd></h3>
+          <p>Opens Claude Code as a <strong>tab at the top</strong> of VS Code &mdash; right alongside your files. Type what you want to build and hit Enter.</p>
         </div>
       </section>
 
       <section class="section">
         <div class="section-header">
           <span class="section-number">04</span>
-          <h2>Open a project folder</h2>
+          <h2>Open a Project Folder</h2>
         </div>
-        <p>Before you start building, tell VS Code which folder to work in.</p>
+        <p>Before building, tell VS Code which folder to work in.</p>
         <div class="card">
-          <h3>From VS Code</h3>
-          <p>Go to <strong>File &rarr; Open Folder</strong> and pick the folder you want to work in (or create a new one).</p>
-          <p>The left sidebar now shows all the files inside that folder. This is your <strong>file explorer</strong>.</p>
-        </div>
-        <div class="card">
-          <h3>From Terminal</h3>
-          <p>You can also open a folder in VS Code from the terminal:</p>
-          <div class="code-block">
-            <code><span class="token-cmd">code</span> ~/my-project</code>
-            <button class="copy-btn" data-copy="code ~/my-project" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p class="hint">If <code>code</code> doesn't work, open VS Code, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, type "shell command", and click <strong>"Install 'code' command in PATH"</strong>.</p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <span class="section-number">05</span>
-          <h2>Using Claude Code in VS Code</h2>
-        </div>
-        <p>Once the extension is installed, here's how to actually use it.</p>
-
-        <div class="card">
-          <h3>Start Claude Code</h3>
-          <p>Click the <strong>Claude Code icon</strong> in the top-right of VS Code (it looks like the Claude sparkle). This opens Claude Code in a terminal panel at the bottom.</p>
-          <p>You can also open it with the keyboard: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, then type <strong>"Claude Code: Open"</strong>.</p>
-        </div>
-
-        <div class="card">
-          <h3>Talk to it</h3>
-          <p>Type what you want to build or change in the Claude Code panel at the bottom. Claude reads your files automatically because VS Code already has the folder open.</p>
-          <div class="code-block">
-            <code>Add a dark mode toggle to this website</code>
-            <button class="copy-btn" data-copy="Add a dark mode toggle to this website" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Watch the tabs</h3>
-          <p>When Claude edits a file, it opens as a <strong>tab at the top</strong> of VS Code. You can:</p>
-          <ul class="platform-list">
-            <li><strong>Click any tab</strong> to see that file's code</li>
-            <li><strong>See the dots</strong> &mdash; a white dot on a tab means it has unsaved changes</li>
-            <li><strong>Compare changes</strong> &mdash; VS Code highlights what Claude changed in green (added) and red (removed)</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Approve or reject changes</h3>
-          <p>Claude will ask permission before writing files. You'll see:</p>
-          <ul class="platform-list">
-            <li><kbd>y</kbd> &mdash; Yes, apply this change</li>
-            <li><kbd>n</kbd> &mdash; No, skip it</li>
-            <li><kbd>a</kbd> &mdash; Yes to all (trust Claude for this session)</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <span class="section-number">06</span>
-          <h2>Why this is better than plain Terminal</h2>
-        </div>
-        <div class="card info">
-          <ul class="platform-list">
-            <li><strong>Tabs at the top:</strong> See every file Claude is working on. Click to jump between them.</li>
-            <li><strong>File explorer:</strong> The left sidebar shows your entire project folder.</li>
-            <li><strong>Live changes:</strong> When Claude edits a file, you see the changes instantly in the editor.</li>
-            <li><strong>Syntax highlighting:</strong> Code is colorful and easier to read than plain Terminal.</li>
-            <li><strong>All-in-one:</strong> Your code, your files, and Claude are all in one window.</li>
-          </ul>
+          <p>Go to <strong>File &rarr; Open Folder</strong> and pick the folder you want to work in (or create a new one). The left sidebar shows all the files inside it.</p>
+          <p class="hint">Claude Code only sees files in the folder you have open.</p>
         </div>
       </section>
 
