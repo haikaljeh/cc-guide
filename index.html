@@ -66,7 +66,7 @@
       <section class="hero">
         <div class="hero-glow"></div>
         <h1>Claude Code Guide</h1>
-        <p class="subtitle">Build apps, websites, and cool stuff with AI — no coding experience needed.</p>
+        <p class="subtitle">A Mac setup guide for building apps, websites, and cool stuff with AI — no coding experience needed.</p>
       </section>
 
       <!-- Step 1: Claude Account -->
@@ -131,7 +131,7 @@
 
         <div class="card">
           <h3>After it finishes</h3>
-          <p>Look at the last few lines of output. It will say <strong>"Next steps"</strong> and show you two commands to run. They look like this &mdash; copy and run them one at a time:</p>
+          <p>Look at the last few lines of output. It will say <strong>"Next steps"</strong> and show you two commands to run. They look like this &mdash; copy and paste each one as a single line:</p>
           <div class="code-block">
             <code><span class="token-cmd">echo</span> >> ~/.zprofile && <span class="token-cmd">echo</span> <span class="token-str">'eval "$(/opt/homebrew/bin/brew shellenv)"'</span> >> ~/.zprofile</code>
             <button class="copy-btn" data-copy="echo >> ~/.zprofile && echo 'eval \"$(/opt/homebrew/bin/brew shellenv)\"' >> ~/.zprofile" aria-label="Copy">
@@ -247,7 +247,7 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Wait for it to finish. Then <strong>close and reopen Terminal</strong> (<kbd>Cmd</kbd> + <kbd>Q</kbd>, then reopen). Verify:</p>
+          <p>Wait for it to finish. Then <strong>quit Terminal</strong> (<kbd>Cmd</kbd> + <kbd>Q</kbd>) and reopen it. Verify:</p>
           <div class="code-block">
             <code><span class="token-cmd">claude</span> <span class="token-arg">--version</span></code>
             <button class="copy-btn" data-copy="claude --version" aria-label="Copy">
@@ -257,39 +257,6 @@
           </div>
           <p>See a version number? You're good.</p>
           <p class="hint">This is the official installer from Anthropic. It auto-updates, so you never have to update manually.</p>
-        </div>
-      </section>
-
-      <!-- Step 7: Two-Desktop Workflow -->
-      <section class="section">
-        <div class="section-header">
-          <span class="section-number">07</span>
-          <h2>Set Up Your Two-Desktop Workflow</h2>
-        </div>
-        <p>This is the best way to work: Claude chat on one screen for questions, VS Code with Claude Code on another for building.</p>
-
-        <div class="card">
-          <h3>Download the Claude app</h3>
-          <p>Go to <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> and install the Mac app. Open it and sign in with your Claude account.</p>
-        </div>
-
-        <div class="card">
-          <h3>Put Claude on its own Desktop</h3>
-          <p>With the Claude app open, hover over the <strong>green button</strong> in the top-left corner of the window. Click <strong>"Enter Full Screen"</strong>. This moves Claude to its own Desktop.</p>
-        </div>
-
-        <div class="card">
-          <h3>Put VS Code on its own Desktop</h3>
-          <p>Switch to VS Code (<kbd>Cmd</kbd> + <kbd>Space</kbd>, type "Visual Studio Code"). Do the same thing &mdash; hover the green button, click <strong>"Enter Full Screen"</strong>.</p>
-        </div>
-
-        <div class="card">
-          <h3>Swipe between them</h3>
-          <p>Now <strong>swipe left or right with three fingers</strong> on your trackpad to jump between Claude chat and VS Code. This is your workflow:</p>
-          <ul class="platform-list">
-            <li><strong>Stuck on something?</strong> Swipe to Claude chat and ask</li>
-            <li><strong>Got an answer?</strong> Swipe back to VS Code and tell Claude Code what to build</li>
-          </ul>
         </div>
       </section>
 
@@ -372,6 +339,30 @@
         </div>
       </section>
 
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2>Set Up Your Two-Desktop Workflow</h2>
+        </div>
+        <p>The best way to work: Claude chat on one screen for questions, VS Code with Claude Code on another for building.</p>
+
+        <div class="card">
+          <ol>
+            <li>Download the Claude app from <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a>. Open it and sign in.</li>
+            <li>With the Claude app open, hover over the <strong>green button</strong> (top-left corner) and click <strong>"Enter Full Screen"</strong>.</li>
+            <li>Switch to VS Code and do the same &mdash; green button, <strong>"Enter Full Screen"</strong>.</li>
+            <li><strong>Swipe left or right with three fingers</strong> on your trackpad to jump between them.</li>
+          </ol>
+        </div>
+
+        <div class="card tip">
+          <ul class="platform-list">
+            <li><strong>Stuck on something?</strong> Swipe to Claude chat and ask</li>
+            <li><strong>Got an answer?</strong> Swipe back to VS Code and tell Claude Code what to build</li>
+          </ul>
+        </div>
+      </section>
+
       <!-- Next Section -->
       <div class="next-section" data-next="first-project">
         <div class="next-label">
@@ -398,61 +389,31 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">01</span>
-          <h2>Create a folder</h2>
+          <h2>Create a project folder</h2>
         </div>
-        <div class="card">
-          <p>This creates a new folder called "my-first-project" in your home directory:</p>
-          <div class="code-block">
-            <code><span class="token-cmd">mkdir</span> ~/my-first-project</code>
-            <button class="copy-btn" data-copy="mkdir ~/my-first-project" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p class="hint"><code>mkdir</code> = "make directory" (create a folder). <code>~</code> = your home folder.</p>
+        <p>In VS Code, go to <strong>File &rarr; Open Folder</strong>. Create a new folder called <strong>my-first-project</strong> anywhere you like, then open it.</p>
+        <div class="card tip">
+          <p>The left sidebar now shows your empty folder. This is where Claude will create files for you.</p>
         </div>
       </section>
 
       <section class="section">
         <div class="section-header">
           <span class="section-number">02</span>
-          <h2>Go into it</h2>
-        </div>
-        <div class="card">
-          <p>This moves you inside the folder you just created:</p>
-          <div class="code-block">
-            <code><span class="token-cmd">cd</span> ~/my-first-project</code>
-            <button class="copy-btn" data-copy="cd ~/my-first-project" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p class="hint"><code>cd</code> = "change directory" (go into a folder). Claude Code only sees files in the folder you're in.</p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <span class="section-number">03</span>
           <h2>Launch Claude Code</h2>
         </div>
+        <p>Press <kbd>Cmd</kbd> + <kbd>I</kbd> to open Claude Code as a tab.</p>
         <div class="card">
-          <div class="code-block">
-            <code><span class="token-cmd">claude</span></code>
-            <button class="copy-btn" data-copy="claude" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
           <p>First time? It'll open your browser to log in. After that, you'll see a <code>&gt;</code> prompt. You're in.</p>
         </div>
       </section>
 
       <section class="section">
         <div class="section-header">
-          <span class="section-number">04</span>
+          <span class="section-number">03</span>
           <h2>Tell it what to build</h2>
         </div>
+        <p>Type a prompt and hit Enter. Try this one:</p>
         <div class="card">
           <div class="code-block">
             <code>Create a simple HTML page that says <span class="token-str">"Hello World"</span> with nice styling</code>
@@ -467,12 +428,12 @@
 
       <section class="section">
         <div class="section-header">
-          <span class="section-number">05</span>
+          <span class="section-number">04</span>
           <h2>See what you built</h2>
         </div>
+        <p>You should see a new <code>index.html</code> file in your sidebar. Open it in your browser:</p>
         <div class="card">
-          <h3>Simple HTML file</h3>
-          <p>Exit Claude Code (<code>/exit</code>), then open it in your browser:</p>
+          <p>Type <code>/exit</code> to leave Claude Code, then run this in VS Code's terminal (<kbd>Ctrl</kbd> + <kbd>`</kbd>):</p>
           <div class="code-block">
             <code><span class="token-cmd">open</span> index.html</code>
             <button class="copy-btn" data-copy="open index.html" aria-label="Copy">
@@ -480,20 +441,7 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-        </div>
-
-        <div class="card">
-          <h3>Full app (React, Next.js, etc.)</h3>
-          <p>Exit Claude Code (<code>/exit</code>), then start the dev server:</p>
-          <div class="code-block">
-            <code><span class="token-cmd">npm</span> run dev</code>
-            <button class="copy-btn" data-copy="npm run dev" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p>It'll show a URL like <code>http://localhost:3000</code> &mdash; open that in your browser. Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the server.</p>
-          <p class="hint">Not sure how to run something? Ask Claude Code: "how do I run this?"</p>
+          <p class="hint"><code>/exit</code> leaves Claude Code and gives you a normal terminal. <code>open</code> opens the file in your browser.</p>
         </div>
       </section>
 
@@ -533,22 +481,8 @@
 
         <div class="card full-width">
           <h3>Start Claude Code</h3>
-          <p>Open VS Code's Terminal (<kbd>Ctrl</kbd> + <kbd>`</kbd>), go to your project folder, then launch Claude:</p>
-          <div class="code-block">
-            <code>cd ~/my-project</code>
-            <button class="copy-btn" data-copy="cd ~/my-project" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <div class="code-block">
-            <code>claude</code>
-            <button class="copy-btn" data-copy="claude" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p class="hint">Replace <code>my-project</code> with your actual folder name.</p>
+          <p>Open your project folder in VS Code (<strong>File &rarr; Open Folder</strong>), then press <kbd>Cmd</kbd> + <kbd>I</kbd>.</p>
+          <p>Claude Code opens as a tab at the top. Type what you want and hit Enter.</p>
         </div>
 
         <div class="card">
@@ -695,10 +629,10 @@
         <div class="card">
           <h3>What to put in it</h3>
           <ul class="platform-list">
-            <li><strong>Commands:</strong> How to build, test, and run your project</li>
-            <li><strong>Architecture:</strong> Non-obvious decisions ("we don't use an ORM")</li>
-            <li><strong>Gotchas:</strong> Things that trip people up ("env vars must be in .env.local")</li>
-            <li><strong>Workflow:</strong> How you like commits, branches, or PRs done</li>
+            <li><strong>How to run things:</strong> "Use <code>npm run dev</code> to start the app"</li>
+            <li><strong>Your preferences:</strong> "Always use dark mode colors" or "Keep code simple"</li>
+            <li><strong>Things Claude gets wrong:</strong> Corrections so it doesn't repeat mistakes</li>
+            <li><strong>Project context:</strong> What the project is and how it's organized</li>
           </ul>
         </div>
 
@@ -809,14 +743,15 @@
 
         <div class="card full-width">
           <h3>Using a skill</h3>
-          <p>Once installed, trigger a skill by typing its slash command:</p>
+          <p>Once installed, trigger a skill by typing its slash command. For example, if you installed a design skill:</p>
           <div class="code-block">
-            <code>/commit</code>
-            <button class="copy-btn" data-copy="/commit" aria-label="Copy">
+            <code>/frontend-design</code>
+            <button class="copy-btn" data-copy="/frontend-design" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
+          <p class="hint">Skills add new slash commands. Built-in commands like <code>/commit</code> and <code>/help</code> work without installing anything.</p>
         </div>
 
         <div class="card full-width">
@@ -836,15 +771,15 @@
             <li><strong>vercel-react-best-practices</strong> &mdash; React patterns from Vercel</li>
             <li><strong>web-design-guidelines</strong> &mdash; Design standards and accessibility</li>
           </ul>
-          <p>Install any skill directly:</p>
+          <p>Each skill listing shows the exact install command. For example:</p>
           <div class="code-block">
-            <code><span class="token-cmd">npx</span> skillsadd owner/skill-name</code>
-            <button class="copy-btn" data-copy="npx skillsadd owner/skill-name" aria-label="Copy">
+            <code><span class="token-cmd">npx</span> skillsadd anthropics/frontend-design</code>
+            <button class="copy-btn" data-copy="npx skillsadd anthropics/frontend-design" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p class="hint">Replace <code>owner/skill-name</code> with the actual skill from skills.sh &mdash; each listing shows the exact install command.</p>
+          <p class="hint">Copy the install command from the skill's page on skills.sh &mdash; don't guess the name.</p>
         </div>
       </div>
 
@@ -931,14 +866,7 @@
 
         <div class="card full-width">
           <h3>Updating</h3>
-          <p>If you used the <code>curl</code> installer (recommended), Claude Code updates itself automatically. If you installed via <code>npm</code>, use:</p>
-          <div class="code-block">
-            <code>npm update -g @anthropic-ai/claude-code</code>
-            <button class="copy-btn" data-copy="npm update -g @anthropic-ai/claude-code" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
+          <p>Claude Code updates itself automatically. You don't need to do anything.</p>
         </div>
       </div>
 
@@ -965,12 +893,12 @@
         </div>
       </div>
 
+      <p class="subtitle" style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 1.5rem;">I made this guide because I was tired of explaining the same setup to each one of you fools one by one. But I'm still figuring out the advanced stuff myself.</p>
+      <p class="subtitle" style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">If you've made it this far, congrats &mdash; you're now roughly as skilled as I am. We in this together.</p>
+
       <div class="card-grid">
         <div class="card full-width advanced-placeholder">
-          <h3>I'll be honest with you</h3>
-          <p>I made this guide because I was tired of explaining the same setup to each one of you fools one by one. But I'm still figuring out the advanced stuff myself.</p>
-          <p>If you've made it this far, congrats &mdash; you're now roughly as skilled as I am. We're in this together.</p>
-          <p>Things I know exist but haven't fully figured out yet:</p>
+          <h3>Things I know exist but haven't fully figured out yet</h3>
           <ul>
             <li><strong>MCP servers</strong> &mdash; connecting Claude Code to databases, APIs, and other tools</li>
             <li><strong>Custom hooks</strong> &mdash; shell commands that auto-run when Claude does things</li>
