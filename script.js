@@ -148,3 +148,11 @@ const sidebar = document.getElementById("sidebar");
 toggle.addEventListener("click", () => {
   sidebar.classList.toggle("open");
 });
+
+// ── Logo Click Handler (Go Home) ──
+const logo = document.getElementById("logo");
+if (logo) {
+  logo.addEventListener("click", () => {
+    switchPage("landing");
+  });
+}
