@@ -425,8 +425,8 @@
         <p>Type a prompt and hit Enter. Try this one:</p>
         <div class="card">
           <div class="code-block">
-            <code>Create a simple HTML page that says <span class="token-str">"Hello World"</span> with nice styling</code>
-            <button class="copy-btn" data-copy='Create a simple HTML page that says "Hello World" with nice styling' aria-label="Copy">
+            <code>Build me a simple website with a welcome page and a nice design</code>
+            <button class="copy-btn" data-copy="Build me a simple website with a welcome page and a nice design" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
@@ -440,17 +440,29 @@
           <span class="section-number">04</span>
           <h2>See what you built</h2>
         </div>
-        <p>You should see a new <code>index.html</code> file in your sidebar. Open it in your browser:</p>
+        <p>Claude is still running in one terminal tab. You need a <strong>second terminal</strong> to run your site.</p>
         <div class="card">
-          <p>Type <code>/exit</code> to leave Claude Code, then run this in VS Code's terminal (<kbd>Ctrl</kbd> + <kbd>`</kbd>):</p>
+          <ol>
+            <li>Click the <strong>+</strong> button next to your terminal tabs (bottom of VS Code) to open a new terminal</li>
+            <li>Navigate to your project folder:</li>
+          </ol>
           <div class="code-block">
-            <code><span class="token-cmd">open</span> index.html</code>
-            <button class="copy-btn" data-copy="open index.html" aria-label="Copy">
+            <code><span class="token-cmd">cd</span> ~/my-first-project</code>
+            <button class="copy-btn" data-copy="cd ~/my-first-project" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p class="hint"><code>/exit</code> leaves Claude Code and gives you a normal terminal. <code>open</code> opens the file in your browser.</p>
+          <p>Then start the dev server:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">npm</span> run dev</code>
+            <button class="copy-btn" data-copy="npm run dev" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>It'll show a URL like <code>http://localhost:3000</code> &mdash; open that in your browser to see your site.</p>
+          <p class="hint">Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the server when you're done. If <code>npm run dev</code> doesn't work, ask Claude: "how do I run this?"</p>
         </div>
       </section>
 
