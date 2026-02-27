@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── Sidebar ── -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">
+        <span class="logo-icon">&#x2756;</span>
+        <span>CC Guide</span>
+      </div>
+    </div>
+    <div class="sidebar-search-container">
+      <input type="text" id="sidebar-search" placeholder="Search commands..." aria-label="Search commands">
+    </div>
+    <ul class="sidebar-nav">
+      <li class="nav-section-label">Setup</li>
+      <li><a href="#" class="nav-link active" data-page="landing">Getting Started</a></li>
+      <li><a href="#" class="nav-link" data-page="vscode">VS Code</a></li>
+      <li><a href="#" class="nav-link" data-page="first-project">First Project</a></li>
+      <li class="nav-section-label">Beginner</li>
+      <li><a href="#" class="nav-link" data-page="basics">Daily Basics</a></li>
+      <li><a href="#" class="nav-link" data-page="memory">Memory</a></li>
+      <li class="nav-section-label">Leveling Up</li>
+      <li><a href="#" class="nav-link" data-page="skills">Skills</a></li>
+      <li><a href="#" class="nav-link" data-page="tips">Tips &amp; Tricks</a></li>
+      <li class="nav-section-label">Advanced</li>
+      <li><a href="#" class="nav-link" data-page="advanced">Here Be Dragons</a></li>
+    </ul>
+  </nav>
+
+  <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- PAGE: Landing                                  -->
+  <!-- ══════════════════════════════════════════════ -->
+  <main class="content">
+    <div class="page active" id="page-landing">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-glow"></div>
+        <h1>Claude Code</h1>
+        <p class="subtitle">Build apps, websites, and cool stuff with AI — no coding experience needed.</p>
+      </section>
+
+      <!-- Step 1: Claude Account -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Create a Claude Account</h2>
+        </div>
+        <p>First things first &mdash; you need a Claude account.</p>
+        <div class="card warning">
+          <h3>Pro Plan Required</h3>
+          <ol>
+            <li>Go to <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a></li>
+            <li>Click <strong>Sign up</strong> and create your account (you can use Google or email)</li>
+            <li>Once signed in, subscribe to the <strong>Pro plan</strong> ($20/month) &mdash; Claude Code requires a paid plan</li>
+          </ol>
+          <p class="hint">The Pro plan gives you access to Claude Code plus the chat app. You can cancel anytime.</p>
+        </div>
+      </section>
+
+      <!-- Step 2: Open Terminal -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Open Terminal</h2>
+        </div>
+        <div class="card info">
+          <p>Press <kbd>Cmd</kbd> + <kbd>Space</kbd> to open Spotlight. Type <strong>Terminal</strong> and press Enter.</p>
+          <p>A window with a blinking cursor appears. This is where you'll paste the first few setup commands. To paste: <kbd>Cmd</kbd> + <kbd>V</kbd>.</p>
+          <p class="hint">We'll switch to VS Code's built-in Terminal in step 05 &mdash; it's much nicer to work in.</p>
+        </div>
+
+        <div class="card tip">
+          <h3>Quick Jargon Check</h3>
+          <p>If you're new here, these words might sound scary. They aren't:</p>
+          <ul class="platform-list">
+            <li><strong>Terminal:</strong> An app where you type commands to your Mac instead of clicking buttons.</li>
+            <li><strong>Folder / Directory:</strong> These are the same thing. <code>mkdir</code> means "make folder."</li>
+            <li><strong>Command:</strong> A specific line of text you paste into Terminal to make it do something.</li>
+            <li><strong>CLI:</strong> Stands for "Command Line Interface"—it's just a program that runs inside Terminal.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Step 3: Install Homebrew -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Install Homebrew</h2>
+        </div>
+        <p>Homebrew is a tool that lets you install other tools. Paste this and press Enter:</p>
+        <div class="card">
+          <div class="code-block">
+            <code>/bin/bash <span class="token-arg">-c</span> <span class="token-str">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span></code>
+            <button class="copy-btn" data-copy='/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"' aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>It will ask for your Mac password (the one you use to log in). <strong>You won't see characters as you type &mdash; that's normal.</strong> Type it and press Enter. Then wait.</p>
+        </div>
+
+        <div class="card">
+          <h3>After it finishes</h3>
+          <p>Look at the last few lines of output. It will say <strong>"Next steps"</strong> and show you two commands to run. They look like this &mdash; copy and run them one at a time:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">echo</span> >> ~/.zprofile && <span class="token-cmd">echo</span> <span class="token-str">'eval "$(/opt/homebrew/bin/brew shellenv)"'</span> >> ~/.zprofile</code>
+            <button class="copy-btn" data-copy="echo >> ~/.zprofile && echo 'eval \"$(/opt/homebrew/bin/brew shellenv)\"' >> ~/.zprofile" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="code-block">
+            <code><span class="token-cmd">eval</span> <span class="token-str">"$(/opt/homebrew/bin/brew shellenv)"</span></code>
+            <button class="copy-btn" data-copy='eval "$(/opt/homebrew/bin/brew shellenv)"' aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p class="hint">If Homebrew shows slightly different commands, use those instead of the ones above.</p>
+        </div>
+      </section>
+
+      <!-- Step 4: Install Node.js -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2>Install Node.js</h2>
+        </div>
+        <p>Node.js lets you run JavaScript projects on your Mac. You'll need it for most web projects.</p>
+        <div class="card">
+          <div class="code-block">
+            <code><span class="token-cmd">brew</span> install node</code>
+            <button class="copy-btn" data-copy="brew install node" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>Wait for it to finish. That's it.</p>
+        </div>
+      </section>
+
+      <!-- Step 5: Set Up Git & GitHub -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2>Set Up Git &amp; GitHub</h2>
+        </div>
+        <p>Git saves snapshots of your code so you never lose work. GitHub stores your code online. You need both.</p>
+
+        <div class="card">
+          <h3>Install Git and the GitHub CLI</h3>
+          <div class="code-block">
+            <code><span class="token-cmd">brew</span> install git gh</code>
+            <button class="copy-btn" data-copy="brew install git gh" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Create a GitHub account</h3>
+          <p>Go to <a href="https://github.com" target="_blank" rel="noopener">github.com</a> and sign up. It's free. Come back here when you're done.</p>
+        </div>
+
+        <div class="card">
+          <h3>Tell Git who you are</h3>
+          <p><strong>Replace</strong> "Your Name" and the email with your actual name and the email you used for GitHub:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">git</span> config <span class="token-arg">--global</span> user.name <span class="token-str">"Your Name"</span></code>
+            <button class="copy-btn" data-copy='git config --global user.name "Your Name"' aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="code-block">
+            <code><span class="token-cmd">git</span> config <span class="token-arg">--global</span> user.email <span class="token-str">"you@email.com"</span></code>
+            <button class="copy-btn" data-copy='git config --global user.email "you@email.com"' aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Log in to GitHub from Terminal</h3>
+          <div class="code-block">
+            <code><span class="token-cmd">gh</span> auth login</code>
+            <button class="copy-btn" data-copy="gh auth login" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>It will ask you questions. Use your arrow keys and Enter to select:</p>
+          <ol>
+            <li><strong>GitHub.com</strong></li>
+            <li><strong>HTTPS</strong></li>
+            <li><strong>Yes</strong> (authenticate Git with your GitHub credentials)</li>
+            <li><strong>Login with a web browser</strong></li>
+          </ol>
+          <p>It shows a code. Press Enter to open your browser, paste the code, and click <strong>Authorize</strong>.</p>
+        </div>
+      </section>
+
+      <!-- Step 7: Install Claude Code -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">07</span>
+          <h2>Install Claude Code</h2>
+        </div>
+        <p>One command. No other software needed.</p>
+        <div class="card">
+          <div class="code-block">
+            <code><span class="token-cmd">curl</span> <span class="token-arg">-fsSL</span> https://claude.ai/install.sh | <span class="token-cmd">bash</span></code>
+            <button class="copy-btn" data-copy="curl -fsSL https://claude.ai/install.sh | bash" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>Wait for it to finish. Then <strong>close and reopen VS Code's Terminal</strong> (press <kbd>Ctrl</kbd> + <kbd>`</kbd> twice &mdash; once to close, once to reopen). Verify:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">claude</span> <span class="token-arg">--version</span></code>
+            <button class="copy-btn" data-copy="claude --version" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>See a version number? You're good.</p>
+          <p class="hint">This is the official installer from Anthropic. It auto-updates, so you never have to update manually.</p>
+        </div>
+      </section>
+
+      <!-- Step 8: Two-Desktop Workflow -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">08</span>
+          <h2>Set Up Your Two-Desktop Workflow</h2>
+        </div>
+        <p>This is the best way to work: Claude chat on one screen for questions, VS Code with Claude Code on another for building.</p>
+
+        <div class="card">
+          <h3>Download the Claude app</h3>
+          <p>Go to <a href="https://claude.ai/download" target="_blank" rel="noopener">claude.ai/download</a> and install the Mac app. Open it and sign in with your Claude account.</p>
+        </div>
+
+        <div class="card">
+          <h3>Put Claude on its own Desktop</h3>
+          <p>With the Claude app open, hover over the <strong>green button</strong> in the top-left corner of the window. Click <strong>"Enter Full Screen"</strong>. This moves Claude to its own Desktop.</p>
+        </div>
+
+        <div class="card">
+          <h3>Put VS Code on its own Desktop</h3>
+          <p>Switch to VS Code (<kbd>Cmd</kbd> + <kbd>Space</kbd>, type "Visual Studio Code"). Do the same thing &mdash; hover the green button, click <strong>"Enter Full Screen"</strong>.</p>
+        </div>
+
+        <div class="card">
+          <h3>Swipe between them</h3>
+          <p>Now <strong>swipe left or right with three fingers</strong> on your trackpad to jump between Claude chat and VS Code. This is your workflow:</p>
+          <ul class="platform-list">
+            <li><strong>Stuck on something?</strong> Swipe to Claude chat and ask</li>
+            <li><strong>Got an answer?</strong> Swipe back to VS Code and tell Claude Code what to build</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Next Section -->
+      <div class="next-section" data-next="vscode">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>VS Code</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-landing -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: VS Code                                  -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-vscode">
+      <div class="page-header">
+        <span class="page-icon">&#x1F4BB;</span>
+        <div>
+          <h1>VS Code</h1>
+          <p class="subtitle">Setting up your home base for building projects.</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Download &amp; Install</h2>
+        </div>
+        <div class="card info">
+          <p>VS Code is the world's most popular tool for building apps. It's free and works perfectly with Claude.</p>
+          <ol>
+            <li>Go to <a href="https://code.visualstudio.com" target="_blank" rel="noopener">code.visualstudio.com</a></li>
+            <li>Click the big <strong>Download</strong> button for Mac.</li>
+            <li>Open the downloaded <code>.zip</code> file.</li>
+            <li>Drag the <strong>Visual Studio Code</strong> app into your <strong>Applications</strong> folder.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Open the Terminal Inside</h2>
+        </div>
+        <div class="card tip">
+          <h3>The Shortcut</h3>
+          <p>Open VS Code, then press <kbd>Ctrl</kbd> + <kbd>`</kbd> (the key next to 1).</p>
+          <p>A panel opens at the bottom. <strong>This is your new home.</strong> You can type all your commands here instead of the old Mac Terminal app.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Install the Claude Code Extension</h2>
+        </div>
+        <div class="card success">
+          <p>This is the "magic" part. It lets Claude edit your files and show you the changes live.</p>
+          <ol>
+            <li>In VS Code, click the <strong>Extensions icon</strong> (four squares) on the left sidebar.</li>
+            <li>Search for <strong>"Claude Code"</strong>.</li>
+            <li>Click <strong>Install</strong>.</li>
+          </ol>
+          <p class="hint">Look for the official extension from Anthropic.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2>Why this is better</h2>
+        </div>
+        <div class="card info">
+          <ul class="platform-list">
+            <li><strong>See your files:</strong> The left sidebar shows every file in your project.</li>
+            <li><strong>See the changes:</strong> When Claude edits a file, it opens in a tab at the top.</li>
+            <li><strong>All-in-one:</strong> Your code, your files, and Claude are all in one window.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Next Section -->
+      <div class="next-section" data-next="first-project">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>First Project</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-vscode -->
+      <div class="page-header">
+        <span class="page-icon">&#x1F680;</span>
+        <div>
+          <h1>First Project</h1>
+          <p class="subtitle">Everything's installed. Let's build something.</p>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>Create a folder</h2>
+        </div>
+        <div class="card">
+          <p>This creates a new folder called "my-first-project" in your home directory:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">mkdir</span> ~/my-first-project</code>
+            <button class="copy-btn" data-copy="mkdir ~/my-first-project" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p class="hint"><code>mkdir</code> = "make directory" (create a folder). <code>~</code> = your home folder.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Go into it</h2>
+        </div>
+        <div class="card">
+          <p>This moves you inside the folder you just created:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">cd</span> ~/my-first-project</code>
+            <button class="copy-btn" data-copy="cd ~/my-first-project" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p class="hint"><code>cd</code> = "change directory" (go into a folder). Claude Code only sees files in the folder you're in.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Launch Claude Code</h2>
+        </div>
+        <div class="card">
+          <div class="code-block">
+            <code><span class="token-cmd">claude</span></code>
+            <button class="copy-btn" data-copy="claude" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>First time? It'll open your browser to log in. After that, you'll see a <code>&gt;</code> prompt. You're in.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2>Tell it what to build</h2>
+        </div>
+        <div class="card">
+          <div class="code-block">
+            <code>Create a simple HTML page that says <span class="token-str">"Hello World"</span> with nice styling</code>
+            <button class="copy-btn" data-copy='Create a simple HTML page that says "Hello World" with nice styling' aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>Claude will ask permission before writing files. Type <kbd>y</kbd> to approve.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2>See what you built</h2>
+        </div>
+        <div class="card">
+          <h3>Simple HTML file</h3>
+          <p>Exit Claude Code (<code>/exit</code>), then open it in your browser:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">open</span> index.html</code>
+            <button class="copy-btn" data-copy="open index.html" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Full app (React, Next.js, etc.)</h3>
+          <p>Exit Claude Code (<code>/exit</code>), then start the dev server:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">npm</span> run dev</code>
+            <button class="copy-btn" data-copy="npm run dev" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>It'll show a URL like <code>http://localhost:3000</code> &mdash; open that in your browser. Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to stop the server.</p>
+          <p class="hint">Not sure how to run something? Ask Claude Code: "how do I run this?"</p>
+        </div>
+      </section>
+
+      <!-- Next Section -->
+      <div class="next-section" data-next="basics">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>Daily Basics</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-first-project -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: Daily Basics (Beginner)                  -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-basics">
+      <div class="page-header">
+        <span class="page-icon">&#x1F4AC;</span>
+        <div>
+          <h1>Daily Basics</h1>
+          <p class="subtitle">The commands you'll use every day once you're set up.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card full-width tip">
+          <h3>The AI Mindset: Chat vs. Code</h3>
+          <p>It's important to know which Claude to talk to:</p>
+          <ul class="platform-list">
+            <li><strong>Claude App / Chat:</strong> Best for <em>thinking</em>. Ask it "How should I structure this?" or "What's the best way to build a menu?"</li>
+            <li><strong>Claude Code (Terminal):</strong> Best for <em>doing</em>. Tell it "Build that menu we just talked about" or "Fix the bug in this file."</li>
+          </ul>
+          <p class="hint">Think of the Chat as your Architect and Claude Code as your Builder.</p>
+        </div>
+
+        <div class="card full-width">
+          <h3>Start Claude Code</h3>
+          <p>Open VS Code's Terminal (<kbd>Ctrl</kbd> + <kbd>`</kbd>), go to your project folder, then launch Claude:</p>
+          <div class="code-block">
+            <code>cd ~/my-project</code>
+            <button class="copy-btn" data-copy="cd ~/my-project" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="code-block">
+            <code>claude</code>
+            <button class="copy-btn" data-copy="claude" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p class="hint">Replace <code>my-project</code> with your actual folder name.</p>
+        </div>
+
+        <div class="card">
+          <h3>Resume where you left off</h3>
+          <p>Closed Terminal? Pick up your last conversation:</p>
+          <div class="code-block">
+            <code>claude --continue</code>
+            <button class="copy-btn" data-copy="claude --continue" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Browse past conversations</h3>
+          <p>Pick from a list of previous sessions:</p>
+          <div class="code-block">
+            <code>claude --resume</code>
+            <button class="copy-btn" data-copy="claude --resume" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card full-width">
+          <h3>Quick one-off question</h3>
+          <p>Don't want a full session? Get an answer and exit immediately:</p>
+          <div class="code-block">
+            <code>claude -p "what does this project do?"</code>
+            <button class="copy-btn" data-copy='claude -p "what does this project do?"' aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Permissions</h3>
+          <p>Claude always asks before changing files:</p>
+          <div class="key-list">
+            <div class="key-item"><kbd>y</kbd><span>Yes, allow this</span></div>
+            <div class="key-item"><kbd>n</kbd><span>No, don't do it</span></div>
+            <div class="key-item"><kbd>a</kbd><span>Always allow this type (this session)</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Slash commands</h3>
+          <p>Type these at the <code>&gt;</code> prompt:</p>
+          <table class="command-table">
+            <tr><td><code>/help</code></td><td>Show all commands</td></tr>
+            <tr><td><code>/clear</code></td><td>Start fresh</td></tr>
+            <tr><td><code>/compact</code></td><td>Compress conversation</td></tr>
+            <tr><td><code>/commit</code></td><td>Create a git commit</td></tr>
+            <tr><td><code>/exit</code></td><td>Leave Claude Code</td></tr>
+          </table>
+        </div>
+
+        <div class="card full-width">
+          <h3>Exiting</h3>
+          <p>Type <code>/exit</code> or press <kbd>Ctrl</kbd> + <kbd>C</kbd> twice.</p>
+        </div>
+
+        <div class="card full-width warning">
+          <h3>Troubleshooting</h3>
+          <p>If things aren't working as expected, try these common fixes:</p>
+          <div class="key-list">
+            <div class="key-item"><strong>"Command not found: claude"</strong> <span>Try <code>source ~/.zshrc</code> or restart your terminal.</span></div>
+            <div class="key-item"><strong>Permission denied</strong> <span>Ensure you're in a folder you have access to. Don't use <code>sudo</code> with Claude.</span></div>
+            <div class="key-item"><strong>"Rate limit reached"</strong> <span>Claude Code shares your Claude Pro limits. Take a short break or check your plan.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Section -->
+      <div class="next-section" data-next="memory">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>Memory</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-basics -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: Memory                                   -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-memory">
+      <div class="page-header">
+        <span class="page-icon">&#x1F9E0;</span>
+        <div>
+          <h1>Memory</h1>
+          <p class="subtitle">Teach Claude your preferences so it remembers them every time.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>What is CLAUDE.md?</h3>
+          <p>A plain text file that Claude reads at the start of <em>every</em> conversation. Think of it as a sticky note you leave for Claude with your preferences and project context.</p>
+        </div>
+
+        <div class="card">
+          <h3>Where to put them</h3>
+          <table class="command-table">
+            <tr><td><code>~/.claude/CLAUDE.md</code></td><td>Global &mdash; applies to every project</td></tr>
+            <tr><td><code>CLAUDE.md</code></td><td>Project root &mdash; this project only</td></tr>
+          </table>
+        </div>
+
+        <div class="card full-width">
+          <h3>Create your first CLAUDE.md</h3>
+          <p>Inside Claude Code, just say:</p>
+          <div class="code-block">
+            <code>Create a CLAUDE.md that tells Claude I prefer simple explanations and short code</code>
+            <button class="copy-btn" data-copy="Create a CLAUDE.md that tells Claude I prefer simple explanations and short code" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>What to put in it</h3>
+          <ul>
+            <li>Your preferred way of speaking (e.g. "be concise")</li>
+            <li>How you like your files organized</li>
+            <li>Specific rules: "always add comments to explain things"</li>
+            <li>The name of your project or website</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>"Remember this"</h3>
+          <p>You can also just tell Claude during a conversation:</p>
+          <div class="code-block">
+            <code>Remember that I want my website to have a blue and white theme</code>
+            <button class="copy-btn" data-copy="Remember that I want my website to have a blue and white theme" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>Claude saves this to auto-memory and recalls it in future sessions.</p>
+        </div>
+      </div>
+
+      <!-- Next Section -->
+      <div class="next-section" data-next="skills">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>Skills</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-memory -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: Skills                                   -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-skills">
+      <div class="page-header">
+        <span class="page-icon">&#x26A1;</span>
+        <div>
+          <h1>Skills</h1>
+          <p class="subtitle">Add-ons that give Claude Code extra abilities &mdash; like apps on your phone.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>What can skills do?</h3>
+          <ul>
+            <li>Generate PDFs, Word docs, or spreadsheets</li>
+            <li>Follow specific coding patterns</li>
+            <li>Run specialized workflows (testing, deploying)</li>
+            <li>Connect to external tools &amp; services</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Find &amp; install skills</h3>
+          <p>Inside Claude Code, type:</p>
+          <div class="code-block">
+            <code>/find-skills</code>
+            <button class="copy-btn" data-copy="/find-skills" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>Claude searches for matching skills and helps install them.</p>
+        </div>
+
+        <div class="card full-width">
+          <h3>Using a skill</h3>
+          <p>Once installed, trigger a skill by typing its slash command:</p>
+          <div class="code-block">
+            <code>/commit</code>
+            <button class="copy-btn" data-copy="/commit" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card full-width">
+          <h3>Where skills live</h3>
+          <table class="command-table">
+            <tr><td><code>~/.claude/skills/</code></td><td>Your personal skills &mdash; available everywhere</td></tr>
+            <tr><td><code>.claude/skills/</code></td><td>Project-specific skills</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Next Section -->
+      <div class="next-section" data-next="tips">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>Tips &amp; Tricks</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-skills -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: Tips                                     -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-tips">
+      <div class="page-header">
+        <span class="page-icon">&#x1F4A1;</span>
+        <div>
+          <h1>Tips &amp; Tricks</h1>
+          <p class="subtitle">Level up your workflow once you're comfortable with the basics.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Plan before building</h3>
+          <p>Press <kbd>Shift</kbd> + <kbd>Tab</kbd> to enter plan mode. Claude will research your code and propose a plan before writing anything. You approve first, then it executes.</p>
+        </div>
+
+        <div class="card">
+          <h3>Be specific</h3>
+          <div class="example bad">"make a login page"</div>
+          <div class="example good">"Create a login page with email and password fields, a submit button, validation errors, using our Button component from src/components"</div>
+        </div>
+
+        <div class="card">
+          <h3>Pipe things in</h3>
+          <p>Send files or command output directly:</p>
+          <div class="code-block">
+            <code>cat error.log | claude -p "explain what went wrong"</code>
+            <button class="copy-btn" data-copy='cat error.log | claude -p "explain what went wrong"' aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p class="hint">The <code>|</code> ("pipe") sends one command's output into the next.</p>
+        </div>
+
+        <div class="card full-width">
+          <h3>Prompt Recipes</h3>
+          <p>Try these specific prompts for better results:</p>
+          <div class="key-list">
+            <div class="key-item"><strong>Clean up:</strong> <span>"Rewrite this file to be easier to read and simpler, but keep it working the same way."</span></div>
+            <div class="key-item"><strong>Check:</strong> <span>"Check my work for any mistakes and tell me if there's a better way to do it."</span></div>
+            <div class="key-item"><strong>Explain:</strong> <span>"Explain how this code works like I'm five years old."</span></div>
+            <div class="key-item"><strong>Fix:</strong> <span>"I'm seeing an error message that says [paste error here]. Can you find out why and fix it?"</span></div>
+          </div>
+        </div>
+
+        <div class="card full-width">
+          <h3>Updating</h3>
+          <p>If you used the <code>curl</code> installer (recommended), Claude Code updates itself automatically. If you installed via <code>npm</code>, use:</p>
+          <div class="code-block">
+            <code>npm update -g @anthropic-ai/claude-code</code>
+            <button class="copy-btn" data-copy="npm update -g @anthropic-ai/claude-code" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Section -->
+      <div class="next-section" data-next="advanced">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>Advanced</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-tips -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: Advanced                                 -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-advanced">
+      <div class="page-header">
+        <span class="page-icon">&#x1F6A7;</span>
+        <div>
+          <h1>Advanced</h1>
+          <p class="subtitle">MCP servers, custom hooks, headless mode, and other dark arts.</p>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card full-width advanced-placeholder">
+          <h3>I'll be honest with you</h3>
+          <p>I made this guide because I was tired of explaining the same setup to each one of you fools one by one. But I'm still figuring out the advanced stuff myself.</p>
+          <p>If you've made it this far, congrats &mdash; you're now roughly as skilled as I am. We're in this together.</p>
+          <p>Things I know exist but haven't fully figured out yet:</p>
+          <ul>
+            <li><strong>MCP servers</strong> &mdash; connecting Claude Code to databases, APIs, and other tools</li>
+            <li><strong>Custom hooks</strong> &mdash; shell commands that auto-run when Claude does things</li>
+            <li><strong>Headless mode</strong> &mdash; running Claude Code in scripts and CI/CD pipelines</li>
+            <li><strong>Multi-agent workflows</strong> &mdash; multiple Claude instances working together</li>
+            <li><strong>Custom permission policies</strong> &mdash; fine-grained control over what Claude can do</li>
+          </ul>
+          <p style="margin-top: 1rem;">When I figure these out, I'll update this page. Or more likely, I'll ask Claude Code to update it for me.</p>
+          <p class="hint">In the meantime, the official docs are at <a href="https://docs.anthropic.com/en/docs/claude-code" target="_blank" rel="noopener">docs.anthropic.com</a>. Good luck in there.</p>
+        </div>
+      </div>
+    </div><!-- /page-advanced -->
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
