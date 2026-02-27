@@ -718,30 +718,46 @@
         <span class="page-icon">&#x1F9E0;</span>
         <div>
           <h1>Memory</h1>
-          <p class="subtitle">Teach Claude your preferences so it remembers them every time.</p>
+          <p class="subtitle">Claude has two ways to remember things: files you write (CLAUDE.md) and notes it keeps automatically (auto-memory).</p>
         </div>
       </div>
 
       <div class="card-grid">
-        <div class="card">
+
+        <!-- ── CLAUDE.md Section ── -->
+
+        <div class="card full-width tip">
           <h3>What is CLAUDE.md?</h3>
-          <p>A plain text file that Claude reads at the start of <em>every</em> conversation. Think of it as a sticky note you leave for Claude with your preferences and project context.</p>
+          <p>A plain text file that Claude reads <strong>automatically at the start of every conversation</strong>. You don't need to ask it to read the file &mdash; it just does.</p>
+          <p>Think of it as your project's instruction manual for Claude. It tells Claude how you like things done so you don't have to repeat yourself every session.</p>
         </div>
 
-        <div class="card">
-          <h3>Where to put them</h3>
+        <div class="card full-width">
+          <h3>Where CLAUDE.md files live</h3>
+          <p>You can have multiple CLAUDE.md files in different places. Claude loads all of them and merges the instructions together.</p>
           <table class="command-table">
-            <tr><td><code>~/.claude/CLAUDE.md</code></td><td>Global &mdash; applies to every project</td></tr>
-            <tr><td><code>CLAUDE.md</code></td><td>Project root &mdash; this project only</td></tr>
+            <tr><td><code>~/.claude/CLAUDE.md</code></td><td><strong>Personal, all projects</strong> &mdash; your global preferences (e.g. "be concise")</td></tr>
+            <tr><td><code>CLAUDE.md</code></td><td><strong>Project root</strong> &mdash; shared with your team via git (e.g. "use 2-space indentation")</td></tr>
+            <tr><td><code>CLAUDE.local.md</code></td><td><strong>Personal, this project</strong> &mdash; auto-gitignored, for your private preferences</td></tr>
+            <tr><td><code>.claude/rules/*.md</code></td><td><strong>Modular rules</strong> &mdash; split instructions into topic files (e.g. <code>testing.md</code>, <code>api.md</code>)</td></tr>
           </table>
+          <p class="hint">More specific files override broader ones. Project rules beat personal rules.</p>
         </div>
 
         <div class="card full-width">
           <h3>Create your first CLAUDE.md</h3>
-          <p>Inside Claude Code, just say:</p>
+          <p>The fastest way: run <code>/init</code> inside Claude Code. Claude scans your project and generates a starter CLAUDE.md for you.</p>
           <div class="code-block">
-            <code>Create a CLAUDE.md that tells Claude I prefer simple explanations and short code</code>
-            <button class="copy-btn" data-copy="Create a CLAUDE.md that tells Claude I prefer simple explanations and short code" aria-label="Copy">
+            <code><span class="token-cmd">/init</span></code>
+            <button class="copy-btn" data-copy="/init" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>Or just ask Claude to create one for you:</p>
+          <div class="code-block">
+            <code>Create a CLAUDE.md for this project with our conventions</code>
+            <button class="copy-btn" data-copy="Create a CLAUDE.md for this project with our conventions" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
@@ -750,17 +766,36 @@
 
         <div class="card">
           <h3>What to put in it</h3>
-          <ul>
-            <li>Your preferred way of speaking (e.g. "be concise")</li>
-            <li>How you like your files organized</li>
-            <li>Specific rules: "always add comments to explain things"</li>
-            <li>The name of your project or website</li>
+          <ul class="platform-list">
+            <li><strong>Commands:</strong> How to build, test, and run your project</li>
+            <li><strong>Architecture:</strong> Non-obvious decisions ("we don't use an ORM")</li>
+            <li><strong>Gotchas:</strong> Things that trip people up ("env vars must be in .env.local")</li>
+            <li><strong>Workflow:</strong> How you like commits, branches, or PRs done</li>
           </ul>
         </div>
 
         <div class="card">
+          <h3>What NOT to put in it</h3>
+          <ul class="platform-list">
+            <li><strong>File lists:</strong> Claude can find files itself</li>
+            <li><strong>Code style:</strong> Claude reads your existing code and follows it</li>
+            <li><strong>Obvious things:</strong> "write clean code" &mdash; Claude already does this</li>
+            <li><strong>Secrets:</strong> Use <code>CLAUDE.local.md</code> for personal stuff (it's gitignored)</li>
+          </ul>
+          <p class="hint">Keep it short &mdash; under 100 lines. If it's too long, Claude loses important rules in the noise.</p>
+        </div>
+
+        <!-- ── Auto-Memory Section ── -->
+
+        <div class="card full-width info">
+          <h3>Auto-Memory: Claude's Notebook</h3>
+          <p>Separate from CLAUDE.md, Claude also keeps its own notes called <strong>auto-memory</strong>. This is stuff Claude learns while working with you &mdash; project patterns, debugging insights, your preferences.</p>
+          <p>Auto-memory is stored in <code>~/.claude/projects/&lt;project&gt;/memory/</code> and the first 200 lines load automatically each session.</p>
+        </div>
+
+        <div class="card">
           <h3>"Remember this"</h3>
-          <p>You can also just tell Claude during a conversation:</p>
+          <p>Tell Claude to save something specific to auto-memory:</p>
           <div class="code-block">
             <code>Remember that I want my website to have a blue and white theme</code>
             <button class="copy-btn" data-copy="Remember that I want my website to have a blue and white theme" aria-label="Copy">
@@ -768,7 +803,32 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Claude saves this to auto-memory and recalls it in future sessions.</p>
+          <p>Claude saves it and recalls it in future sessions automatically.</p>
+        </div>
+
+        <div class="card">
+          <h3>Manage your memory</h3>
+          <p>Type <code>/memory</code> to open the memory file selector. You can view, edit, or clear what Claude remembers.</p>
+          <div class="code-block">
+            <code><span class="token-cmd">/memory</span></code>
+            <button class="copy-btn" data-copy="/memory" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- ── Quick Reference ── -->
+
+        <div class="card full-width success">
+          <h3>CLAUDE.md vs Auto-Memory: Quick Reference</h3>
+          <table class="command-table">
+            <tr><td><strong>CLAUDE.md</strong></td><td>You write it. Instructions &amp; rules. Like a project handbook.</td></tr>
+            <tr><td><strong>Auto-memory</strong></td><td>Claude writes it. Things it learned. Like Claude's notebook.</td></tr>
+            <tr><td><strong>/init</strong></td><td>Auto-generate a CLAUDE.md based on your project</td></tr>
+            <tr><td><strong>/memory</strong></td><td>View and manage Claude's auto-memory</td></tr>
+            <tr><td><strong>"Remember this"</strong></td><td>Tell Claude to save something specific to auto-memory</td></tr>
+          </table>
         </div>
       </div>
 
