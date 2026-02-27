@@ -11,6 +11,13 @@
 </head>
 <body>
 
+  <!-- ── Floating Background Orbs ── -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
   <!-- ── Sidebar ── -->
   <nav class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -222,10 +229,10 @@
         </div>
       </section>
 
-      <!-- Step 7: Install Claude Code -->
+      <!-- Step 6: Install Claude Code -->
       <section class="section">
         <div class="section-header">
-          <span class="section-number">07</span>
+          <span class="section-number">06</span>
           <h2>Install Claude Code</h2>
         </div>
         <p>One command. No other software needed.</p>
@@ -250,10 +257,10 @@
         </div>
       </section>
 
-      <!-- Step 8: Two-Desktop Workflow -->
+      <!-- Step 7: Two-Desktop Workflow -->
       <section class="section">
         <div class="section-header">
-          <span class="section-number">08</span>
+          <span class="section-number">07</span>
           <h2>Set Up Your Two-Desktop Workflow</h2>
         </div>
         <p>This is the best way to work: Claude chat on one screen for questions, VS Code with Claude Code on another for building.</p>
@@ -353,12 +360,85 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">04</span>
-          <h2>Why this is better</h2>
+          <h2>Open a project folder</h2>
+        </div>
+        <p>Before you start building, tell VS Code which folder to work in.</p>
+        <div class="card">
+          <h3>From VS Code</h3>
+          <p>Go to <strong>File &rarr; Open Folder</strong> and pick the folder you want to work in (or create a new one).</p>
+          <p>The left sidebar now shows all the files inside that folder. This is your <strong>file explorer</strong>.</p>
+        </div>
+        <div class="card">
+          <h3>From Terminal</h3>
+          <p>You can also open a folder in VS Code from the terminal:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">code</span> ~/my-project</code>
+            <button class="copy-btn" data-copy="code ~/my-project" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p class="hint">If <code>code</code> doesn't work, open VS Code, press <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, type "shell command", and click <strong>"Install 'code' command in PATH"</strong>.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2>Using Claude Code in VS Code</h2>
+        </div>
+        <p>Once the extension is installed, here's how to actually use it.</p>
+
+        <div class="card">
+          <h3>Start Claude Code</h3>
+          <p>Click the <strong>Claude Code icon</strong> in the top-right of VS Code (it looks like the Claude sparkle). This opens Claude Code in a terminal panel at the bottom.</p>
+          <p>You can also open it with the keyboard: <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, then type <strong>"Claude Code: Open"</strong>.</p>
+        </div>
+
+        <div class="card">
+          <h3>Talk to it</h3>
+          <p>Type what you want to build or change in the Claude Code panel at the bottom. Claude reads your files automatically because VS Code already has the folder open.</p>
+          <div class="code-block">
+            <code>Add a dark mode toggle to this website</code>
+            <button class="copy-btn" data-copy="Add a dark mode toggle to this website" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Watch the tabs</h3>
+          <p>When Claude edits a file, it opens as a <strong>tab at the top</strong> of VS Code. You can:</p>
+          <ul class="platform-list">
+            <li><strong>Click any tab</strong> to see that file's code</li>
+            <li><strong>See the dots</strong> &mdash; a white dot on a tab means it has unsaved changes</li>
+            <li><strong>Compare changes</strong> &mdash; VS Code highlights what Claude changed in green (added) and red (removed)</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Approve or reject changes</h3>
+          <p>Claude will ask permission before writing files. You'll see:</p>
+          <ul class="platform-list">
+            <li><kbd>y</kbd> &mdash; Yes, apply this change</li>
+            <li><kbd>n</kbd> &mdash; No, skip it</li>
+            <li><kbd>a</kbd> &mdash; Yes to all (trust Claude for this session)</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">06</span>
+          <h2>Why this is better than plain Terminal</h2>
         </div>
         <div class="card info">
           <ul class="platform-list">
-            <li><strong>See your files:</strong> The left sidebar shows every file in your project.</li>
-            <li><strong>See the changes:</strong> When Claude edits a file, it opens in a tab at the top.</li>
+            <li><strong>Tabs at the top:</strong> See every file Claude is working on. Click to jump between them.</li>
+            <li><strong>File explorer:</strong> The left sidebar shows your entire project folder.</li>
+            <li><strong>Live changes:</strong> When Claude edits a file, you see the changes instantly in the editor.</li>
+            <li><strong>Syntax highlighting:</strong> Code is colorful and easier to read than plain Terminal.</li>
             <li><strong>All-in-one:</strong> Your code, your files, and Claude are all in one window.</li>
           </ul>
         </div>
@@ -374,6 +454,11 @@
       </div>
 
     </div><!-- /page-vscode -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: First Project                            -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-first-project">
       <div class="page-header">
         <span class="page-icon">&#x1F680;</span>
         <div>
@@ -592,6 +677,7 @@
             <tr><td><code>/clear</code></td><td>Start fresh</td></tr>
             <tr><td><code>/compact</code></td><td>Compress conversation</td></tr>
             <tr><td><code>/commit</code></td><td>Create a git commit</td></tr>
+            <tr><td><code>/cost</code></td><td>Show how much this session has cost</td></tr>
             <tr><td><code>/exit</code></td><td>Leave Claude Code</td></tr>
           </table>
         </div>
@@ -608,6 +694,7 @@
             <div class="key-item"><strong>"Command not found: claude"</strong> <span>Try <code>source ~/.zshrc</code> or restart your terminal.</span></div>
             <div class="key-item"><strong>Permission denied</strong> <span>Ensure you're in a folder you have access to. Don't use <code>sudo</code> with Claude.</span></div>
             <div class="key-item"><strong>"Rate limit reached"</strong> <span>Claude Code shares your Claude Pro limits. Take a short break or check your plan.</span></div>
+            <div class="key-item"><strong>Authentication expired</strong> <span>Run <code>claude auth logout</code> then <code>claude auth login</code> to re-authenticate.</span></div>
           </div>
         </div>
       </div>
@@ -751,6 +838,26 @@
             <tr><td><code>.claude/skills/</code></td><td>Project-specific skills</td></tr>
           </table>
         </div>
+
+        <div class="card full-width tip">
+          <h3>Browse the Skills Marketplace</h3>
+          <p>Go to <a href="https://skills.sh" target="_blank" rel="noopener">skills.sh</a> &mdash; it's an open directory of community-built skills you can install with one command.</p>
+          <p>Popular skills include:</p>
+          <ul class="platform-list">
+            <li><strong>frontend-design</strong> &mdash; UI/UX design principles</li>
+            <li><strong>vercel-react-best-practices</strong> &mdash; React patterns from Vercel</li>
+            <li><strong>web-design-guidelines</strong> &mdash; Design standards and accessibility</li>
+          </ul>
+          <p>Install any skill directly:</p>
+          <div class="code-block">
+            <code><span class="token-cmd">npx</span> skillsadd owner/skill-name</code>
+            <button class="copy-btn" data-copy="npx skillsadd owner/skill-name" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p class="hint">Replace <code>owner/skill-name</code> with the actual skill from skills.sh &mdash; each listing shows the exact install command.</p>
+        </div>
       </div>
 
       <!-- Next Section -->
@@ -786,6 +893,28 @@
           <h3>Be specific</h3>
           <div class="example bad">"make a login page"</div>
           <div class="example good">"Create a login page with email and password fields, a submit button, validation errors, using our Button component from src/components"</div>
+        </div>
+
+        <div class="card">
+          <h3>Make Claude think harder</h3>
+          <p>Add these words to your prompt to control how deeply Claude thinks:</p>
+          <div class="key-list">
+            <div class="key-item"><strong>"think"</strong> <span>Moderate thinking &mdash; good for multi-file changes</span></div>
+            <div class="key-item"><strong>"think hard"</strong> <span>Deep thinking &mdash; for complex bugs or architecture decisions</span></div>
+            <div class="key-item"><strong>"ultrathink"</strong> <span>Maximum brainpower &mdash; for critical, high-stakes decisions</span></div>
+          </div>
+          <p class="hint">Example: "think hard about why this login page keeps crashing and fix it"</p>
+        </div>
+
+        <div class="card full-width">
+          <h3>What Claude can read</h3>
+          <p>Claude Code isn't just for writing code. You can throw all kinds of files at it:</p>
+          <ul class="platform-list">
+            <li><strong>Spreadsheets &amp; Excel:</strong> Analyze data, find patterns, create summaries</li>
+            <li><strong>PDFs:</strong> Extract text, summarize documents, compare versions</li>
+            <li><strong>Images &amp; screenshots:</strong> Read error messages, interpret charts, explain what's on screen</li>
+            <li><strong>Writing:</strong> Draft emails, reports, meeting notes, documentation</li>
+          </ul>
         </div>
 
         <div class="card">
