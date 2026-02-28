@@ -27,15 +27,22 @@ function switchPage(pageId, updateHistory = true) {
 
   // 3. Transition logic
   if (currentActive) {
+    // Start fade out
     currentActive.classList.remove("active");
+    
+    // Wait for fade out transition (0.25s) then hide and show new
     setTimeout(() => {
       currentActive.style.display = "none";
+      
+      // Prepare new page
       target.style.display = "block";
+      // Force reflow
       target.offsetHeight;
+      // Start fade in
       target.classList.add("active");
     }, 250);
   } else {
-    // Initial load
+    // Initial load logic remains same
     pages.forEach(p => {
       p.style.display = "none";
       p.classList.remove("active");

@@ -131,10 +131,17 @@
 
         <div class="card">
           <h3>After it finishes</h3>
-          <p>Look at the last few lines of output. It will say <strong>"Next steps"</strong> and show you two commands to run. They look like this &mdash; copy and paste each one into Terminal as a single line:</p>
+          <p>Look at the last few lines of output. It will say <strong>"Next steps"</strong> and show you two commands to run. They look like this &mdash; copy and paste each one into Terminal <strong>one by one</strong>:</p>
           <div class="code-block">
-            <code><span class="token-cmd">echo</span> >> ~/.zprofile && <span class="token-cmd">echo</span> <span class="token-str">'eval "$(/opt/homebrew/bin/brew shellenv)"'</span> >> ~/.zprofile</code>
-            <button class="copy-btn" data-copy="echo >> ~/.zprofile &amp;&amp; echo 'eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;' >> ~/.zprofile" aria-label="Copy">
+            <code><span class="token-cmd">echo</span> >> ~/.zprofile</code>
+            <button class="copy-btn" data-copy="echo >> ~/.zprofile" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="code-block">
+            <code><span class="token-cmd">echo</span> <span class="token-str">'eval "$(/opt/homebrew/bin/brew shellenv)"'</span> >> ~/.zprofile</code>
+            <button class="copy-btn" data-copy="echo 'eval &quot;$(/opt/homebrew/bin/brew shellenv)&quot;' >> ~/.zprofile" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
@@ -146,7 +153,7 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p class="hint">If Homebrew shows slightly different commands, use those instead of the ones above.</p>
+          <p class="hint"><strong>Note:</strong> If you are on an Intel Mac, your commands might say <code>/usr/local/bin/brew</code> instead of <code>/opt/homebrew/bin/brew</code>. Use whatever the terminal output shows you!</p>
         </div>
       </section>
 
@@ -179,6 +186,7 @@
 
         <div class="card">
           <h3>Install Git and the GitHub CLI</h3>
+          <p>Paste this into Terminal:</p>
           <div class="code-block">
             <code><span class="token-cmd">brew</span> install git gh</code>
             <button class="copy-btn" data-copy="brew install git gh" aria-label="Copy">
@@ -458,6 +466,7 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
+          <p class="hint"><strong>Pro Tip:</strong> You can also type <code>cd</code> (followed by a space) and then <strong>drag your folder</strong> from Finder directly into the terminal window to get the path automatically.</p>
           <p>Then start the dev server:</p>
           <div class="code-block">
             <code><span class="token-cmd">npm</span> run dev</code>
