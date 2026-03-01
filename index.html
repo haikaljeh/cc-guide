@@ -99,17 +99,6 @@
           <p>Press <kbd>Cmd</kbd> + <kbd>Space</kbd> to open Spotlight. Type <strong>Terminal</strong> and press Enter.</p>
           <p>A window with a blinking cursor appears. This is where you'll paste the first few setup commands. To paste: <kbd>Cmd</kbd> + <kbd>V</kbd>.</p>
         </div>
-
-        <div class="card tip">
-          <h3>Quick Jargon Check</h3>
-          <p>If you're new here, these words might sound scary. They aren't:</p>
-          <ul class="platform-list">
-            <li><strong>Terminal:</strong> An app where you type commands to your Mac instead of clicking buttons.</li>
-            <li><strong>Folder / Directory:</strong> These are the same thing. <code>mkdir</code> means "make folder."</li>
-            <li><strong>Command:</strong> A specific line of text you paste into Terminal to make it do something.</li>
-            <li><strong>CLI:</strong> Stands for "Command Line Interface"—it's just a program that runs inside Terminal.</li>
-          </ul>
-        </div>
       </section>
 
       <!-- Step 3: Install Homebrew -->
@@ -173,7 +162,7 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Then install the Vercel CLI (you'll need this later to deploy websites):</p>
+          <p>Then install the Vercel tool (you'll need this later to put websites on the internet):</p>
           <div class="code-block">
             <code><span class="token-cmd">npm</span> install <span class="token-arg">-g</span> vercel</code>
             <button class="copy-btn" data-copy="npm install -g vercel" aria-label="Copy">
@@ -194,7 +183,7 @@
         <p>Git saves snapshots of your code so you never lose work. GitHub stores your code online. You need both.</p>
 
         <div class="card">
-          <h3>Install Git and the GitHub CLI</h3>
+          <h3>Install Git and GitHub tools</h3>
           <p>Paste this into Terminal:</p>
           <div class="code-block">
             <code><span class="token-cmd">brew</span> install git gh</code>
@@ -670,7 +659,7 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Claude Code will run the Vercel CLI, link your project, and deploy it. Approve the commands when it asks. It may open your browser once to log in to Vercel &mdash; just authorize and come back.</p>
+          <p>Claude Code will connect your project to Vercel and deploy it. Approve the commands when it asks. It may open your browser once to log in to Vercel &mdash; just authorize and come back.</p>
           <p>When it's done, you'll get a live URL. Your site is on the internet.</p>
         </div>
       </section>
