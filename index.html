@@ -164,7 +164,7 @@
           <span class="section-number">04</span>
           <h2>Install Node.js</h2>
         </div>
-        <p>Node.js lets you run JavaScript projects on your Mac. You'll need it for most web projects. Paste this into Terminal:</p>
+        <p>Node.js lets you run JavaScript projects on your Mac. You'll need it for most web projects. Paste these into Terminal one at a time:</p>
         <div class="card">
           <div class="code-block">
             <code><span class="token-cmd">brew</span> install node</code>
@@ -173,7 +173,15 @@
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Wait for it to finish. That's it.</p>
+          <p>Then install the Vercel CLI (you'll need this later to deploy websites):</p>
+          <div class="code-block">
+            <code><span class="token-cmd">npm</span> install <span class="token-arg">-g</span> vercel</code>
+            <button class="copy-btn" data-copy="npm install -g vercel" aria-label="Copy">
+              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <p>Wait for both to finish. That's it.</p>
         </div>
       </section>
 
@@ -626,7 +634,7 @@
           <span class="section-number">01</span>
           <h2>What is Vercel?</h2>
         </div>
-        <p>Vercel is a free service that turns your project into a live website with a real URL. You connect it once, and every time you push changes to GitHub, your site updates automatically.</p>
+        <p>Vercel is a free service that turns your project into a live website with a real URL. You set it up once, and every time you push changes, your site updates automatically.</p>
       </section>
 
       <section class="section">
@@ -648,68 +656,37 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">03</span>
-          <h2>Push Your Project to GitHub</h2>
+          <h2>Deploy Your Project</h2>
         </div>
-        <p>Vercel deploys from GitHub, so your project needs to be there first. Tell Claude Code to do it for you:</p>
+        <p>Tell Claude Code to handle everything &mdash; creating the GitHub repo, connecting Vercel, and deploying:</p>
         <div class="card">
           <div class="code-block">
-            <code>Create a GitHub repo for this project and push all my code to it</code>
-            <button class="copy-btn" data-copy="Create a GitHub repo for this project and push all my code to it" aria-label="Copy">
+            <code>Create a GitHub repo for this project, deploy it to Vercel, and give me the live URL</code>
+            <button class="copy-btn" data-copy="Create a GitHub repo for this project, deploy it to Vercel, and give me the live URL" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Claude Code will initialize git, create the repo, and push everything. Approve the commands when it asks.</p>
+          <p>Claude Code will run the Vercel CLI, link your project, and deploy it. Approve the commands when it asks. It may open your browser once to log in to Vercel &mdash; just authorize and come back.</p>
+          <p>When it's done, you'll get a live URL. Your site is on the internet.</p>
         </div>
       </section>
 
       <section class="section">
         <div class="section-header">
           <span class="section-number">04</span>
-          <h2>Connect Vercel to Your Repo</h2>
-        </div>
-        <p>Now tell Vercel which GitHub repo to deploy.</p>
-        <div class="card">
-          <ol>
-            <li>Go to <a href="https://vercel.com/new" target="_blank" rel="noopener">vercel.com/new</a></li>
-            <li>Find your project in the list and click <strong>Import</strong></li>
-            <li>Leave all settings as default and click <strong>Deploy</strong></li>
-          </ol>
-          <p>After a minute or two, you'll get a live URL like <code>my-first-project.vercel.app</code>.</p>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <span class="section-number">05</span>
-          <h2>Make It Public</h2>
-        </div>
-        <p>By default, Vercel requires a login to view your site. Turn that off so anyone can see it.</p>
-        <div class="card">
-          <ol>
-            <li>Go to your project on the <a href="https://vercel.com/dashboard" target="_blank" rel="noopener">Vercel dashboard</a></li>
-            <li>Click <strong>Settings</strong> &rarr; <strong>Deployment Protection</strong></li>
-            <li>Set <strong>Vercel Authentication</strong> to <strong>Off</strong></li>
-            <li>Click <strong>Save</strong></li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="section-header">
-          <span class="section-number">06</span>
           <h2>Pushing Updates</h2>
         </div>
         <p>Every time you want your live site to update, just tell Claude Code:</p>
         <div class="card">
           <div class="code-block">
-            <code>Commit my changes and push to GitHub</code>
-            <button class="copy-btn" data-copy="Commit my changes and push to GitHub" aria-label="Copy">
+            <code>Commit my changes and push to Vercel</code>
+            <button class="copy-btn" data-copy="Commit my changes and push to Vercel" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <p>Claude Code handles the git commands. Vercel detects the push and rebuilds your site automatically within a minute.</p>
+          <p>Claude Code handles the git commands. Your live site updates within a minute.</p>
         </div>
       </section>
 
