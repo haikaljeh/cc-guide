@@ -626,7 +626,7 @@
           <span class="section-number">01</span>
           <h2>What is Vercel?</h2>
         </div>
-        <p>Vercel is a free service that takes your project folder and turns it into a live website with a real URL. Every time you push changes to GitHub, Vercel automatically updates your site.</p>
+        <p>Vercel is a free service that turns your project into a live website with a real URL. You connect it once, and every time you push changes to GitHub, your site updates automatically.</p>
       </section>
 
       <section class="section">
@@ -634,7 +634,7 @@
           <span class="section-number">02</span>
           <h2>Create a Vercel Account</h2>
         </div>
-        <p>You'll sign up using your GitHub account &mdash; this is how Vercel accesses your code.</p>
+        <p>Sign up using your GitHub account &mdash; this is how Vercel accesses your code.</p>
         <div class="card">
           <ol>
             <li>Go to <a href="https://vercel.com" target="_blank" rel="noopener">vercel.com</a></li>
@@ -650,44 +650,16 @@
           <span class="section-number">03</span>
           <h2>Push Your Project to GitHub</h2>
         </div>
-        <p>Vercel deploys from GitHub, so your project needs to be there first. Open a terminal in VS Code (<kbd>Ctrl</kbd> + <kbd>`</kbd>) and run these one at a time:</p>
+        <p>Vercel deploys from GitHub, so your project needs to be there first. Tell Claude Code to do it for you:</p>
         <div class="card">
           <div class="code-block">
-            <code><span class="token-cmd">cd</span> ~/my-first-project</code>
-            <button class="copy-btn" data-copy="cd ~/my-first-project" aria-label="Copy">
+            <code>Create a GitHub repo for this project and push all my code to it</code>
+            <button class="copy-btn" data-copy="Create a GitHub repo for this project and push all my code to it" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <div class="code-block">
-            <code><span class="token-cmd">git</span> init</code>
-            <button class="copy-btn" data-copy="git init" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <div class="code-block">
-            <code><span class="token-cmd">git</span> add <span class="token-arg">.</span></code>
-            <button class="copy-btn" data-copy="git add ." aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <div class="code-block">
-            <code><span class="token-cmd">git</span> commit <span class="token-arg">-m</span> <span class="token-str">"first commit"</span></code>
-            <button class="copy-btn" data-copy='git commit -m "first commit"' aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <div class="code-block">
-            <code><span class="token-cmd">gh</span> repo create my-first-project <span class="token-arg">--public --source=.</span> <span class="token-arg">--push</span></code>
-            <button class="copy-btn" data-copy="gh repo create my-first-project --public --source=. --push" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p class="hint">This creates a new GitHub repo, adds all your files, and pushes them up. Replace <code>my-first-project</code> with your actual folder name.</p>
+          <p>Claude Code will initialize git, create the repo, and push everything. Approve the commands when it asks.</p>
         </div>
       </section>
 
@@ -696,14 +668,14 @@
           <span class="section-number">04</span>
           <h2>Connect Vercel to Your Repo</h2>
         </div>
-        <p>Now tell Vercel to deploy your GitHub repo.</p>
+        <p>Now tell Vercel which GitHub repo to deploy.</p>
         <div class="card">
           <ol>
             <li>Go to <a href="https://vercel.com/new" target="_blank" rel="noopener">vercel.com/new</a></li>
-            <li>Find your <strong>my-first-project</strong> repo in the list and click <strong>Import</strong></li>
+            <li>Find your project in the list and click <strong>Import</strong></li>
             <li>Leave all settings as default and click <strong>Deploy</strong></li>
           </ol>
-          <p>Vercel will build your project. After a minute or two, you'll get a live URL like <code>my-first-project.vercel.app</code>.</p>
+          <p>After a minute or two, you'll get a live URL like <code>my-first-project.vercel.app</code>.</p>
         </div>
       </section>
 
@@ -726,33 +698,18 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">06</span>
-          <h2>Auto-Deploy on Every Change</h2>
+          <h2>Pushing Updates</h2>
         </div>
-        <p>This is already set up. Every time you push to GitHub, Vercel automatically rebuilds your site. Here's how to push changes:</p>
+        <p>Every time you want your live site to update, just tell Claude Code:</p>
         <div class="card">
-          <p>After Claude Code makes changes, open a terminal in VS Code and run:</p>
           <div class="code-block">
-            <code><span class="token-cmd">git</span> add <span class="token-arg">.</span></code>
-            <button class="copy-btn" data-copy="git add ." aria-label="Copy">
+            <code>Commit my changes and push to GitHub</code>
+            <button class="copy-btn" data-copy="Commit my changes and push to GitHub" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
           </div>
-          <div class="code-block">
-            <code><span class="token-cmd">git</span> commit <span class="token-arg">-m</span> <span class="token-str">"update site"</span></code>
-            <button class="copy-btn" data-copy='git commit -m "update site"' aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <div class="code-block">
-            <code><span class="token-cmd">git</span> push</code>
-            <button class="copy-btn" data-copy="git push" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p class="hint">Within a minute, your live site updates automatically. No need to touch Vercel again.</p>
+          <p>Claude Code handles the git commands. Vercel detects the push and rebuilds your site automatically within a minute.</p>
         </div>
       </section>
 
