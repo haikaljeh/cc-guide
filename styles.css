@@ -825,6 +825,95 @@ kbd {
   color: #bbf7d0;
 }
 
+/* ── Screenshots & Visual Assets ── */
+
+/* Full-width screenshot inside a section or card */
+.guide-screenshot {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  margin: 1rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+/* Smaller screenshot that doesn't span full width */
+.guide-screenshot.sm {
+  max-width: 420px;
+}
+
+/* Screenshot with a subtle gold glow for emphasis */
+.guide-screenshot.highlight {
+  border-color: rgba(212, 162, 87, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 162, 87, 0.08);
+}
+
+/* Caption below a screenshot */
+.screenshot-caption {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: -0.5rem 0 1rem;
+  font-style: italic;
+}
+
+/* Inline icon next to text (e.g., VS Code icons, zsh icon) */
+.inline-icon {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.15em;
+  margin: 0 0.15em;
+  border-radius: 3px;
+}
+
+/* Slightly larger inline icon for emphasis */
+.inline-icon.lg {
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: -0.25em;
+}
+
+/* Screenshot group — two screenshots side by side (before/after, comparison) */
+.screenshot-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.screenshot-pair .guide-screenshot {
+  margin: 0;
+}
+
+/* Annotated screenshot wrapper — screenshot with a numbered callout overlay */
+.screenshot-annotated {
+  position: relative;
+  margin: 1rem 0;
+}
+
+.screenshot-annotated .guide-screenshot {
+  margin: 0;
+}
+
+.screenshot-callout {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #0a0a0a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .mobile-topbar {
@@ -866,5 +955,13 @@ kbd {
 
   .bg-orbs {
     display: none;
+  }
+
+  .screenshot-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-screenshot.sm {
+    max-width: 100%;
   }
 }

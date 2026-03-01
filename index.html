@@ -466,18 +466,9 @@
         <p>Claude is still running in one terminal tab. You need a <strong>second terminal</strong> to run your site.</p>
         <div class="card">
           <ol>
-            <li>Click the <strong>+</strong> button next to your terminal tabs (bottom of VS Code) to open a new terminal</li>
-            <li>Navigate to your project folder:</li>
+            <li>Press <kbd>Ctrl</kbd> + <kbd>`</kbd> to open a new terminal at the bottom of VS Code</li>
+            <li>Start the dev server:</li>
           </ol>
-          <div class="code-block">
-            <code><span class="token-cmd">cd</span> ~/my-first-project</code>
-            <button class="copy-btn" data-copy="cd ~/my-first-project" aria-label="Copy">
-              <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-            </button>
-          </div>
-          <p class="hint"><strong>Pro Tip:</strong> You can also type <code>cd</code> (followed by a space) and then <strong>drag your folder</strong> from Finder directly into the terminal window to get the path automatically.</p>
-          <p>Then start the dev server:</p>
           <div class="code-block">
             <code><span class="token-cmd">npm</span> run dev</code>
             <button class="copy-btn" data-copy="npm run dev" aria-label="Copy">
@@ -544,7 +535,7 @@
 
         <div class="card">
           <h3>Resume where you left off</h3>
-          <p>Closed Terminal? Pick up your last conversation:</p>
+          <p>Left Claude Code? Pick up your last conversation:</p>
           <div class="code-block">
             <code>claude --continue</code>
             <button class="copy-btn" data-copy="claude --continue" aria-label="Copy">
@@ -914,8 +905,8 @@
           </ul>
           <p>Each skill listing shows the exact install command. For example:</p>
           <div class="code-block">
-            <code><span class="token-cmd">npx</span> skillsadd anthropics/frontend-design</code>
-            <button class="copy-btn" data-copy="npx skillsadd anthropics/frontend-design" aria-label="Copy">
+            <code><span class="token-cmd">npx</span> skillsadd anthropic/frontend-design</code>
+            <button class="copy-btn" data-copy="npx skillsadd anthropic/frontend-design" aria-label="Copy">
               <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
             </button>
