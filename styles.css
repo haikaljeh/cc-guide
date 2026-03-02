@@ -161,28 +161,32 @@ a:hover {
 
 /* ── Semantic Callouts ── */
 .card.warning {
-  border-left: 4px solid #ef4444;
+  border-top: 2px solid #ef4444;
   background: rgba(239, 68, 68, 0.05);
 }
 .card.warning h3 { color: #f87171; }
+.card.warning h3::before { content: "\26A0\FE0F "; }
 
 .card.tip {
-  border-left: 4px solid var(--accent);
+  border-top: 2px solid var(--accent);
   background: var(--accent-soft);
 }
 .card.tip h3 { color: var(--accent); }
+.card.tip h3::before { content: "\1F4A1 "; }
 
 .card.success {
-  border-left: 4px solid var(--green);
+  border-top: 2px solid var(--green);
   background: rgba(74, 222, 128, 0.05);
 }
 .card.success h3 { color: var(--green); }
+.card.success h3::before { content: "\2713 "; }
 
 .card.info {
-  border-left: 4px solid #3b82f6;
+  border-top: 2px solid #3b82f6;
   background: rgba(59, 130, 246, 0.05);
 }
 .card.info h3 { color: #60a5fa; }
+.card.info h3::before { content: "\2192 "; }
 
 /* ── Sidebar ── */
 .sidebar {
@@ -463,15 +467,13 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
   background: linear-gradient(135deg, var(--accent-bright), #a07730);
   color: #0a0a0a;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
   flex-shrink: 0;
-  box-shadow: 0 2px 12px rgba(212, 162, 87, 0.25), 0 0 0 3px rgba(212, 162, 87, 0.08);
 }
 
 /* ── Cards ── */
@@ -487,8 +489,7 @@ a:hover {
 .card:hover {
   border-color: var(--border-hover);
   background: var(--bg-card-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(212, 162, 87, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card h3 {
@@ -555,7 +556,7 @@ a:hover {
   justify-content: space-between;
   background: var(--bg-code);
   border: 1px solid var(--border);
-  border-left: 3px solid var(--accent);
+  border-top: 2px solid var(--accent);
   border-radius: var(--radius-sm);
   padding: 0.65rem 0.85rem;
   margin-bottom: 0.5rem;
@@ -579,14 +580,14 @@ code {
   background: var(--bg-code);
   padding: 0.15em 0.45em;
   border-radius: 5px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(212, 162, 87, 0.15);
 }
 
 kbd {
   font-family: "JetBrains Mono", "SF Mono", monospace;
   font-size: 0.78em;
   background: var(--bg-code);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(212, 162, 87, 0.15);
   border-bottom-width: 2px;
   border-radius: 5px;
   padding: 0.15em 0.5em;
