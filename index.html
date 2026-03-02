@@ -36,6 +36,7 @@
       <li><a href="#" class="nav-link" data-page="first-project">First Project</a></li>
       <li class="nav-section-label">Beginner</li>
       <li><a href="#" class="nav-link" data-page="basics">Daily Basics</a></li>
+      <li><a href="#" class="nav-link" data-page="changes">Making Changes</a></li>
       <li><a href="#" class="nav-link" data-page="vercel">Deploy with Vercel</a></li>
       <li class="nav-section-label">Leveling Up</li>
       <li><a href="#" class="nav-link" data-page="memory">Memory</a></li>
@@ -96,8 +97,12 @@
         </div>
         <p>A window where you type commands to your Mac. We'll only need it for initial setup &mdash; we'll set up a proper code editor on the next page.</p>
         <div class="card info">
-          <p>Press <kbd>Cmd</kbd> + <kbd>Space</kbd> to open Spotlight. Type <strong>Terminal</strong> and press Enter.</p>
-          <p>A window with a blinking cursor appears. This is where you'll paste the first few setup commands. To paste: <kbd>Cmd</kbd> + <kbd>V</kbd>.</p>
+          <p>Press <kbd>Cmd</kbd> + <kbd>Space</kbd> to open Spotlight (the search bar that appears in the center of your screen). Type <strong>Terminal</strong> and press Enter.</p>
+          <p>A dark window with a blinking cursor appears &mdash; it looks like this:</p>
+          <div class="perm-prompt" style="color: var(--text-muted);">
+            <span style="color: var(--green);">user@MacBook</span><span style="color: var(--text-muted);">:</span><span style="color: #60a5fa;">~</span><span style="color: var(--text-muted);">$</span> <span style="opacity: 0.4;">&#x2588;</span>
+          </div>
+          <p>This is where you'll paste the first few setup commands. To paste: <kbd>Cmd</kbd> + <kbd>V</kbd>.</p>
         </div>
       </section>
 
@@ -105,7 +110,7 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">03</span>
-          <h2>Install Homebrew</h2>
+          <h2>Install Homebrew <span class="brand-icon" title="Homebrew"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#d4a257" d="M7.938 0a.214.214 0 0 0-.206.156c-.316 1.104.179 2.15.838 2.935.153.181.313.347.476.501a2.039 2.039 0 0 0-.665.02c-1.184.233-2.193.985-2.74 2.532a3.893 3.893 0 0 0-.2 1.466 1.565 1.565 0 0 0-1.156 1.504 1.59 1.59 0 0 0 1.227 1.541l.026 12.046c0 .195.1.377.264.482a.214.214 0 0 0 .008.005c.537.31 2.047.812 5.21.812 3.238 0 4.7-.678 5.181-1.04a.214.214 0 0 0 .008-.007.571.571 0 0 0 .206-.439c.002-.344.002-1.136.002-1.604a.143.143 0 0 1 .147-.144c.397.006.869.006 1.318.005a1.826 1.826 0 0 0 1.832-1.825v-5.804a1.826 1.826 0 0 0-1.825-1.826H16.56a.14.14 0 0 1-.143-.144V10.6h.007v-.001a1.573 1.573 0 0 0 1.356-1.556c0-.816-.627-1.489-1.424-1.563-.025-1.438-.437-2.126-.736-2.58a.214.214 0 0 0-.005-.007c-.364-.51-1.193-1.282-2.275-1.316-.503-.016-.842.124-1.125.254-.217.1-.42.177-.67.22.002-1.286.945-1.981.945-1.981a.214.214 0 0 0 .05-.298s-.087-.122-.21-.26c-.121-.136-.269-.294-.47-.378a.214.214 0 0 0-.079-.017.214.214 0 0 0-.145.055 4.308 4.308 0 0 0-.875 1.101 3.42 3.42 0 0 0-.133.273 3.497 3.497 0 0 0-.381-.846C9.794.978 9.063.436 8.017.016A.214.214 0 0 0 7.939 0z"/></svg></span></h2>
         </div>
         <p>Homebrew is a tool that lets you install other tools. Paste this into Terminal and press Enter:</p>
         <div class="card">
@@ -121,7 +126,14 @@
 
         <div class="card">
           <h3>After it finishes</h3>
-          <p>Look at the last few lines of output. It will say <strong>"Next steps"</strong> and show you two commands to run. They look like this &mdash; copy and paste each one into Terminal <strong>one by one</strong>:</p>
+          <p>Look at the last few lines of output. It will say <strong>"Next steps"</strong> and show you commands to run. The output looks something like this:</p>
+          <div class="perm-prompt">
+            <span style="color: var(--green); font-weight: 600;">==> Next steps:</span><br>
+            <span class="perm-option">- Run these commands in your terminal to add Homebrew to your <strong>PATH</strong>:</span><br>
+            <span style="color: var(--accent);">&nbsp;&nbsp;echo >> ~/.zprofile</span><br>
+            <span style="color: var(--accent);">&nbsp;&nbsp;echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile</span>
+          </div>
+          <p>Copy and paste each command into Terminal <strong>one by one</strong>:</p>
           <div class="code-block">
             <code><span class="token-cmd">echo</span> >> ~/.zprofile</code>
             <button class="copy-btn" data-copy="echo >> ~/.zprofile" aria-label="Copy">
@@ -151,7 +163,7 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">04</span>
-          <h2>Install Node.js</h2>
+          <h2>Install Node.js <span class="brand-icon" title="Node.js"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#5FA04E" d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/></svg></span></h2>
         </div>
         <p>Node.js lets you run JavaScript projects on your Mac. You'll need it for most web projects. Paste these into Terminal one at a time:</p>
         <div class="card">
@@ -178,7 +190,7 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">05</span>
-          <h2>Set Up Git &amp; GitHub</h2>
+          <h2>Set Up Git <span class="brand-icon" title="Git"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#F05032" d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg></span> &amp; GitHub <span class="brand-icon" title="GitHub"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ececef" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></h2>
         </div>
         <p>Git saves snapshots of your code so you never lose work. GitHub stores your code online. You need both.</p>
 
@@ -315,7 +327,7 @@
         <div class="card success">
           <ol>
             <li>Open VS Code</li>
-            <li>Click the <strong>Extensions icon</strong> (four squares) on the left sidebar</li>
+            <li>Click the <strong>Extensions icon</strong> <svg class="vscode-icon-ext" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="9" height="9" rx="1.5" fill="#7e7e8a"/><rect x="16" y="3" width="9" height="9" rx="1.5" fill="#7e7e8a"/><rect x="3" y="16" width="9" height="9" rx="1.5" fill="#7e7e8a"/><rect x="18" y="18" width="7" height="7" rx="1.5" fill="#d4a257" transform="rotate(5 21.5 21.5)"/></svg> on the left sidebar</li>
             <li>Search for <strong>"Claude Code"</strong></li>
             <li>Click <strong>Install</strong> on the one from Anthropic</li>
           </ol>
@@ -345,7 +357,7 @@
       <section class="section">
         <div class="section-header">
           <span class="section-number">04</span>
-          <h2>Download the Claude App</h2>
+          <h2>Download the Claude App <span class="brand-icon" title="Claude"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#d4a257" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span></h2>
         </div>
         <p>Separate from Claude Code, there's also a Claude chat app. You'll use it to think through ideas before telling Claude Code what to build.</p>
         <div class="card">
@@ -365,7 +377,7 @@
 
         <div class="card">
           <ol>
-            <li>With the Claude app open, hover over the <strong>green button</strong> (top-left corner) and click <strong>"Enter Full Screen"</strong>.</li>
+            <li>With the Claude app open, hover over the <span class="macos-btn red"></span><span class="macos-btn yellow"></span><span class="macos-btn green"></span> buttons (top-left corner) and click the green one &rarr; <strong>"Enter Full Screen"</strong>.</li>
             <li>Switch to VS Code and do the same &mdash; green button, <strong>"Enter Full Screen"</strong>.</li>
             <li><strong>Swipe left or right with three fingers</strong> on your trackpad to jump between them.</li>
           </ol>
@@ -407,7 +419,7 @@
           <span class="section-number">01</span>
           <h2>Create a project folder</h2>
         </div>
-        <p>In VS Code, click the <strong>Explorer icon</strong> (two files) in the left sidebar, then click <strong>Open Folder</strong>. Create a new folder called <strong>my-first-project</strong> anywhere you like, then open it.</p>
+        <p>In VS Code, click the <strong>Explorer icon</strong> <svg class="vscode-icon-explorer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="12" height="16" rx="1.5" stroke="#7e7e8a" stroke-width="1.5" fill="none"/><rect x="6" y="1" width="12" height="16" rx="1.5" stroke="#d4a257" stroke-width="1.5" fill="none"/></svg> in the left sidebar, then click <strong>Open Folder</strong>. Create a new folder called <strong>my-first-project</strong> anywhere you like, then open it.</p>
         <div class="card tip">
           <p>The left sidebar now shows your empty folder. This is where Claude will create files for you.</p>
         </div>
@@ -455,7 +467,7 @@
         <p>Claude is still running in one terminal tab. You need a <strong>second terminal</strong> to run your site.</p>
         <div class="card">
           <ol>
-            <li>Press <kbd>Ctrl</kbd> + <kbd>`</kbd> to open a new terminal at the bottom of VS Code</li>
+            <li>Click the <span class="vscode-new-terminal-btn"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M8 2v12M2 8h12" stroke="#ccc" stroke-width="1.5" stroke-linecap="round"/></svg></span> button next to your terminal tabs, or press <kbd>Ctrl</kbd> + <kbd>`</kbd>, to open a new terminal</li>
             <li>Start the dev server:</li>
           </ol>
           <div class="code-block">
@@ -498,8 +510,8 @@
           <h3>The AI Mindset: Chat vs. Code</h3>
           <p>It's important to know which Claude to talk to:</p>
           <ul class="platform-list">
-            <li><strong>Claude App / Chat:</strong> Best for <em>thinking</em>. Ask it "How should I structure this?" or "What's the best way to build a menu?"</li>
-            <li><strong>Claude Code (Terminal):</strong> Best for <em>doing</em>. Tell it "Build that menu we just talked about" or "Fix the bug in this file."</li>
+            <li><span class="brand-icon" title="Claude"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#d4a257" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></span> <strong>Claude App / Chat:</strong> Best for <em>thinking</em>. Ask it "How should I structure this?" or "What's the best way to build a menu?"</li>
+            <li><svg class="vscode-icon-ext" viewBox="0 0 16 16" fill="none" style="width:1.4em;height:1.4em;vertical-align:-0.3em"><path d="M2 12L6.5 8L2 4" stroke="#d4a257" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 13H14" stroke="#d4a257" stroke-width="1.5" stroke-linecap="round"/></svg> <strong>Claude Code (Terminal):</strong> Best for <em>doing</em>. Tell it "Build that menu we just talked about" or "Fix the bug in this file."</li>
           </ul>
           <p class="hint">Think of the Chat as your Architect and Claude Code as your Builder.</p>
           <h3 style="margin-top: 1rem;">Pro tip: Use Chat to write your prompts</h3>
@@ -518,7 +530,7 @@
 
         <div class="card full-width">
           <h3>Start Claude Code</h3>
-          <p>Open your project folder in VS Code (click the <strong>Explorer icon</strong> in the left sidebar &rarr; <strong>Open Folder</strong>).</p>
+          <p>Open your project folder in VS Code (click the <strong>Explorer icon</strong> <svg class="vscode-icon-explorer" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="12" height="16" rx="1.5" stroke="#7e7e8a" stroke-width="1.5" fill="none"/><rect x="6" y="1" width="12" height="16" rx="1.5" stroke="#d4a257" stroke-width="1.5" fill="none"/></svg> in the left sidebar &rarr; <strong>Open Folder</strong>).</p>
           <p>Press <kbd>Ctrl</kbd> + <kbd>`</kbd> to open the terminal, type <code>claude</code>, and drag the terminal tab up to the top bar. Type what you want and hit Enter.</p>
         </div>
 
@@ -560,7 +572,11 @@
 
         <div class="card">
           <h3>Permissions</h3>
-          <p>Claude always asks before changing files:</p>
+          <p>Claude always asks before changing files. It looks like this:</p>
+          <div class="perm-prompt">
+            <span class="perm-question">Claude wants to edit index.html</span><br>
+            <span class="perm-option">&nbsp;&nbsp;<span class="perm-key">y</span> Allow &nbsp; <span class="perm-key">n</span> Deny &nbsp; <span class="perm-key">a</span> Always allow</span>
+          </div>
           <div class="key-list">
             <div class="key-item"><kbd>y</kbd><span>Yes, allow this</span></div>
             <div class="key-item"><kbd>n</kbd><span>No, don't do it</span></div>
@@ -599,6 +615,133 @@
       </div>
 
       <!-- Next Section -->
+      <div class="next-section" data-next="changes">
+        <div class="next-label">
+          <span>Up Next</span>
+          <span>Making Changes</span>
+        </div>
+        <div class="next-icon">&rarr;</div>
+      </div>
+
+    </div><!-- /page-basics -->
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PAGE: Making Changes (Beginner)                -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="page" id="page-changes">
+      <div class="page-header">
+        <span class="page-icon">&#x270E;</span>
+        <div>
+          <h1>Making Changes</h1>
+          <p class="subtitle">How to iterate on your project &mdash; ask for changes, review them, and build up piece by piece.</p>
+        </div>
+      </div>
+
+      <!-- 01 — One thing at a time -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">01</span>
+          <h2>One thing at a time</h2>
+        </div>
+        <p>The biggest beginner mistake is asking for too much at once. Small, specific prompts get better results than big vague ones.</p>
+        <div class="example bad">"Build me a full website with a navbar, hero section, about page, contact form, and make it mobile responsive"</div>
+        <div class="example good">"Add a navigation bar at the top with links to Home, About, and Contact"</div>
+        <p>Each prompt should do <strong>one thing</strong>. Once it works, move on to the next thing. Think of it like giving directions &mdash; one turn at a time.</p>
+      </section>
+
+      <!-- 02 — Check what changed -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">02</span>
+          <h2>Check what changed</h2>
+        </div>
+        <p>After Claude makes changes, <strong>look at the result</strong>. Open your browser, refresh the page, and see what actually happened.</p>
+        <div class="card tip">
+          <h3>Read the output</h3>
+          <p>Claude tells you what it changed and why. Read its response before moving on &mdash; it often mentions things you'll want to know, like files it created or decisions it made.</p>
+        </div>
+        <p>If the change looks right, great &mdash; ask for the next thing. If something's off, tell Claude what to fix.</p>
+      </section>
+
+      <!-- 03 — Ask for fixes -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">03</span>
+          <h2>Ask for fixes</h2>
+        </div>
+        <p>"That's not what I wanted" is a perfectly valid thing to say. Claude won't get it right every time, and that's fine. Just tell it what to change.</p>
+        <p>You don't need to be technical. These all work:</p>
+        <div class="code-block">
+          <code><span class="token-str">"Make the header smaller"</span></code>
+          <button class="copy-btn" data-copy="Make the header smaller" aria-label="Copy">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+        </div>
+        <div class="code-block">
+          <code><span class="token-str">"Change the blue to green"</span></code>
+          <button class="copy-btn" data-copy="Change the blue to green" aria-label="Copy">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+        </div>
+        <div class="code-block">
+          <code><span class="token-str">"Move the image to the right side"</span></code>
+          <button class="copy-btn" data-copy="Move the image to the right side" aria-label="Copy">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+        </div>
+        <p>It's a conversation. You don't need to get your prompt perfect on the first try &mdash; just keep talking.</p>
+      </section>
+
+      <!-- 04 — Undo mistakes -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">04</span>
+          <h2>Undo mistakes</h2>
+        </div>
+        <div class="card info">
+          <h3>Git is your safety net</h3>
+          <p>If you set up Git on the Getting Started page, Claude automatically saves snapshots of your code. That means you can always go back if something breaks.</p>
+        </div>
+        <p>The easiest way to undo something is to just tell Claude:</p>
+        <div class="code-block">
+          <code><span class="token-str">"Undo the last change"</span></code>
+          <button class="copy-btn" data-copy="Undo the last change" aria-label="Copy">
+            <svg class="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </button>
+        </div>
+        <p>Claude will use Git to revert the change. If things get really messy, you can also undo multiple changes or go back to a specific point.</p>
+        <div class="card warning">
+          <h3>Fresh start</h3>
+          <p>If Claude seems confused or stuck, type <code>/clear</code> to reset the conversation. It keeps your files but starts the chat fresh, which often fixes weird behavior.</p>
+        </div>
+      </section>
+
+      <!-- 05 — Build piece by piece -->
+      <section class="section">
+        <div class="section-header">
+          <span class="section-number">05</span>
+          <h2>Build piece by piece</h2>
+        </div>
+        <p>Real projects are built in small steps. Here's what a typical session looks like:</p>
+        <div class="card tip">
+          <h3>Example flow</h3>
+          <ol>
+            <li><strong>"Add a nav bar with links to Home, About, and Contact"</strong> &mdash; check it, looks good</li>
+            <li><strong>"Change the background color to dark blue"</strong> &mdash; check it, looks good</li>
+            <li><strong>"Add a contact section with an email link"</strong> &mdash; check it, the font is too small</li>
+            <li><strong>"Make the contact section text bigger"</strong> &mdash; check it, looks good</li>
+            <li><strong>"Make everything look good on mobile"</strong> &mdash; check it on your phone, done</li>
+          </ol>
+          <p>Each step is small. Each step gets checked. That's the whole workflow.</p>
+        </div>
+        <p>Don't try to build everything at once. Ask for one thing, check it, then ask for the next. You'll be surprised how fast things come together.</p>
+      </section>
+
+      <!-- Next Section -->
       <div class="next-section" data-next="vercel">
         <div class="next-label">
           <span>Up Next</span>
@@ -607,7 +750,7 @@
         <div class="next-icon">&rarr;</div>
       </div>
 
-    </div><!-- /page-basics -->
+    </div><!-- /page-changes -->
 
     <!-- ══════════════════════════════════════════════ -->
     <!-- PAGE: Deploy with Vercel                       -->
@@ -616,7 +759,7 @@
       <div class="page-header">
         <span class="page-icon">&#x25B2;</span>
         <div>
-          <h1>Deploy with Vercel</h1>
+          <h1>Deploy with Vercel <span class="brand-icon lg" title="Vercel"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#ececef" d="m12 1.608 12 20.784H0Z"/></svg></span></h1>
           <p class="subtitle">Put your website on the internet so anyone can see it.</p>
         </div>
       </div>
